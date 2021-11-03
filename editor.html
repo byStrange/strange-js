@@ -1,0 +1,119 @@
+<!--
+	https://codemirror.net/lib/codemirror.css
+	https://codemirror.net/lib/codemirror.js
+	https://codemirror.net/mode/xml/xml.js
+	https://codemirror.net/mode/css/css.js
+	https://codemirror.net/mode/javascript/javascript.js
+	style.css
+	code.js
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+
+	
+</head>
+<body>			
+		<div class="input-group">
+			<div class="text-control">
+			<div class="text-panel">
+				<br>
+				<div class="play btn btn-outline-success"  >play</div>
+				<br> <br>
+				<div class="open btn btn-outline-success" onclick="button()">Open</div>
+				<br> <br>
+				<div class="reset btn btn-outline-success" onclick="editor.setValue('' )">clear</div>
+				<br> <br>
+				<div class="btn btn-outline-success" onclick="copy(this)">copy</div>
+				<br> <br>
+				<div class="save btn btn-outline-success" style="opacity: 0;" onclick="save()">save</div>
+				<!-- <div class="live btn btn-outline-danger ">
+				<label for="check" class="form-label ">Live</label>   <input type="checkbox" class="custom-checkbox-2" id="check"></div><br> <br> -->
+				<!-- <select id="select" class="btn btn-outline-success" >
+				<option style="color :red;">Themes</option>
+				<option>Dark</option>
+				<option>Light</option>
+				<option>Monokai</option>
+				<option>Mariana</option>
+			</select> -->
+			</div> 
+
+			
+		</div>
+				<div class="wrapper" id="holder" style="width:5px;border-left:1px solid gray;height: 100%;z-index: 50;cursor: e-resize;"></div>
+
+			<textarea type="text" name="" class="form-control" id="code" placeholder="Welcome to code"></textarea>
+		</div>				
+		<div class=""></div>
+		<audio src="" autoplay=""></audio>
+		<!-- <div class="div-modal-box">
+			<div class="modal-content " >
+				<sub class="text-danger">Code editor's rules</sub>
+				<h1 class="text-warning">Notice!</h1>
+				<h5 class="text-secondary">You don't have to use strings (""), when writing attributes value</h5>
+				<kbd class="first-kbd"></kbd> <br>
+				<h5 class="text-secondary">Before all snippets put '$' sign and hit tab</h5>
+				<kbd><del>html</del>      <span class="text-muted">tab don't use like that <--</span> <br>
+				$html 		<span class="text-muted">tab It's correct or</span><br>
+				$div   	<span class="text-muted">tab</span></kbd> <br>
+				<h5 class="text-secondary">And if you want snippets with their <span class="text-success">.class </span>or <span class="text-info">id#</span></h5>
+				<kbd>
+					$div. 		<span class="text-muted">tab =></span> <span class="k-2"></span><br>
+					$div#		<span class="text-muted">tab =></span> <span class="k-3"></span>
+				</kbd>
+				<h5>Please do'nt use <span class="k-4 text-danger"></span> tag use only between&nbsp&nbsp<span class="k-5 text-danger"></span> tags </h5>
+				<label for="check" class="text-primary">I agree Terms of condition
+			          &nbsp&nbsp	<input type="checkbox" name="" id="check">  
+				</label>
+			<button class="btn btn-outline-success start">Ok Start</button>
+
+			</div>
+		</div> -->
+		<footer class="abs">
+			<div class="row-s">
+				<div class="col-s"></div>
+				<div class="col-s">Tab Size: <span id="footer-tabsize"></span></div>
+			</div>
+			<div class="row-s">
+				<div class="col-s"><span id="footer-syntax"></span></div>
+				<div class="col-s">Line <span id="footer-line"></span>, Column <span id="footer-column"></span></div>
+			</div>
+			<div class="row-s">
+				<div class="col-s" title="syntax"><span id="footer-syntax"></span></div>
+			</div>
+		</footer>
+</body>
+	<script src="https://codemirror.net/lib/codemirror.js"></script>
+		<script src="https://codemirror.net/mode/xml/xml.js"></script>
+	<script src="https://codemirror.net/mode/css/css.js"></script>
+	<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+	<script src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="main.js"></script>
+<script type="text/javascript" src="snippets.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	// $(function() {
+	// 			$('.start').click(function() {
+	// 		$(this).parent().hide(1700);
+	// 		setTimeout(call, 1700);
+	// 		call()
+	// 	})
+	// 	function call() {
+
+	// 		$('.div-modal-box').animate({
+	// 			top: '-100vh',
+	// 			left: '100vh',
+	// 			display : 'none'
+	// 		},1700)
+	// 		$('.div-modal-box').css({
+	// 			transform : 'scale(.8,.8)'
+	// 		})
+	// 	}
+	// })
+	// console.log()
+</script>
+</html>	

@@ -1,0 +1,200 @@
+*{
+	margin: 0;
+	padding: 0;
+	color: 	#fff;
+}
+body{
+	background:white;
+	overflow: hidden;
+	background: #151515;
+}
+div.input-group{
+	width: 100%;
+	height: 101vh;
+	background:rgb(52,61,70)	;
+}
+textarea{
+	display: block;
+	height: 100%;
+	color: rgb(236,95,102) !important;
+	background: rgb(52,61,70) !important;
+	border: none  !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+textarea::selection{
+	background: rgba(78,90,101,.6);
+}
+textarea::-webkit-scrollbar{
+	width: 5px;
+	background: rgb(67,76,84);
+}
+textarea::-webkit-scrollbar-thumb{
+	background: rgb(95,102,109);
+}
+textarea.form-control:focus{
+	box-shadow: none !important;
+	outline: none !important;
+	border: none !important;
+}
+div.output{
+	display: inline-block;
+	position: relative;
+	width: 50%;
+	height: 100vh;
+	top: 8px;
+	left: 8px;	
+	word-wrap: break-word;
+}
+div.text-control{
+	min-width: 0;
+	min-height: 0;
+	position: relative;
+	padding: 5px;
+	background: rgba(31,37,42);
+}
+div.text-panel{
+	background: rgba(31,37,42);
+}
+
+.form-control:focus{
+	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0);
+}
+.monokai{
+	color: rgb(249,35,114) !important;
+	background: rgb(40,41,35) !important;
+} 
+.Dark{
+	color: white !important;
+	background: black !important;
+}
+.Light {
+	color: black !important;
+	background: white !important;
+}
+.Breakers{
+	color: rgb(236,95,102) !important;
+	background: rgb(52,61,70) !important;
+}
+select{
+	-webkit-appearance : none;
+}
+button{
+	margin-bottom: 10px;
+}
+div.div-modal-box{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2416546;
+	background: rgba(0,0,0,.95);
+	padding-top: 5%;
+}
+div.modal-content{
+	width: 35%;
+	min-height: 250px; 
+	padding: 15px;
+	animation: hides 700ms 3000ms ease;
+	box-shadow: 0 0 30px rgba(255,255,255,.4)
+	transition: 500ms;
+	position: absolute;
+	top: -1000px;
+	left: 50%;
+	transform: translate(-50%,0);
+	animation: show 2000ms ease ;
+}
+@keyframes show{
+	from{
+		top: -1000px
+	}
+	to{
+		top: 30px;
+	}
+}
+@keyframes hide {
+	from{
+		transform: scale(1,1);
+	}
+	to{
+		transform: scale(.8,.8);
+	}
+}
+kbd{
+	transition: 500ms;
+}
+kbd:active{
+	transform: scale(.97,.97);
+}
+.CodeMirror.cm-s-default {
+	height: 100vh;
+	background: rgb(52,61,70);
+}
+::-webkit-scrollbar{
+	display: none;
+}
+.CodeMirror-cursor{
+	border-color: orange !important;
+}
+.cm-tag.cm-bracket 
+{
+	color: #5ea792 !important;
+}
+.cm-tag{
+	color: #ec6066 !important;
+}
+.CodeMirror-gutters{
+	background: transparent !important;
+	border:  none !important;
+	border-left: 1px solid rgba(0,0,0,.1)
+}
+.cm-attribute{
+	color: #bc92c4 !important;
+}
+.cm-string{
+	color:#99c791 !important;
+}
+.cm-m-xml.cm-comment{
+	color: rgb(166,172,185) !important;
+}
+.cm-m-xml .cm-meta{
+	color: #bc92c4 !important;
+}
+.cm-m-javascript.cm-atom{
+	color: rgb(229,92,97) !important;
+}
+.cm-m-javascript.cm-keyword {
+	color: rgba(198,149,198) !important
+}
+.cm-m-javascript.cm-def{
+	color: #fff !important;
+}
+.cm-m-javascript.cm-property{
+	color: rgb(102,153,204) !important;
+}
+.cm-m-javascript.cm-variable{
+	color: rgb(150,153,230) !important
+}
+.cm-m-javascript.cm-comment {
+	color: rgb(166,172,185);
+}
+footer.abs{
+	position: absolute;
+	width: 100%;
+	height: 25px;
+	top: 90%;
+	display: flex;
+	background: rgb(31,37,42);
+	z-index: 50;
+	align-items: center;
+}
+footer.abs > div.row-s{
+	width: 100%;
+	display: flex;
+	justify-content:flex-start;
+	font-size: 14px;
+	height: 100%;
+	align-items: center;		
+	padding-left: 20px;
+}

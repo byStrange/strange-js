@@ -1,0 +1,33 @@
+{
+    "ok": true,
+    "app": {
+        "version": "1.0",
+        "name": "Code Editor first Relase",
+        "author": "Strange-bs",
+        "relased_date": "02.11.2021",
+        "isTrusted": true,
+        "settings": {
+            "color_scheme": "Mariana",
+            "font_face": "system",
+            "tab_size": "4",
+            "syntax": "htmlmixed"
+        },
+        "links": {
+            "bootstrap": {
+                "type": "css",
+                "version": "5.0.0-beta2",
+                "author": "bootstrap",
+                "isConnected": true
+            },
+            "style": {
+                "type": "css",
+                "version": null,
+                "author": "Strange",
+                "isConnected": true
+            }
+        },
+        "scripts": {
+
+        },
+    }
+}

@@ -10,8 +10,8 @@ body{
 }
 div.input-group{
 	width: 100%;
-	height: 101vh;
-	background:rgb(52,61,70)	;
+	height: 100vh;
+	background:rgb(52,61,70);
 }
 textarea{
 	display: block;
@@ -58,6 +58,22 @@ div.text-panel{
 }
 div.text-panel > div{
 	width: 100%;
+}
+.btn-outline-success{
+	background: rgb(13,17,23) !important;
+	border: 1px solid gray !important;
+	color: #fff !important;
+}
+a{
+	text-decoration: none !important;
+}
+.CodeMirror-selected { background: hsla(210, 13%, 40%, 0.7) !important; }
+.CodeMirror-focused .CodeMirror-selected { background: hsla(210, 13%, 40%, 0.7) !important; }
+button#down_btn{
+	position: absolute;
+	z-index: 95959595;
+	top:0px;
+	left: 80%;
 }
 .form-control:focus{
 	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0);
@@ -133,6 +149,7 @@ kbd:active{
 	display: none;
 }
 .CodeMirror.cm-s-default {
+	width: 70% !important;
 	height: 100vh;
 }
 .CodeMirror.cm-s-default{
@@ -168,4 +185,7 @@ footer.abs > div.row-s{
 	height: 100%;
 	align-items: center;		
 	padding-left: 20px;
+}
+div.row-s *{
+	cursor: pointer;
 }

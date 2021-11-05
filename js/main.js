@@ -92,9 +92,12 @@
 	        editor.setOption('mode', 'javascript')
 	    } else if (fileData.name.split('.')[1] == 'css') {
 	        editor.setOption('mode', 'css')
+	    } else {
+	    	editor.setOption('mode', 'text')
 	    }
-	    document.querySelector('.text-control').style.display = 'none'
-	    document.querySelector('#holder').style.display = 'none'
+	    // document.querySelector('.text-control').style.display = 'none'
+	    // document.querySelector('#holder').style.display = 'none'
+	    document.querySelector('.save').style.display = 'inline-block'
 	    let text = await fileData.text()
 	    editor.setValue(text)
 	}
@@ -103,7 +106,7 @@
 	    document.querySelector('#footer-tabsize').innerText = editor.options.tabSize
 	    document.querySelector('#footer-line').innerText = editor.getCursor().line + 1
 	    document.querySelector('#footer-column').innerText = editor.getCursor().ch;
-	    document.querySelector('#footer-syntax').innerText = editor.options.mode;
+	    document.querySelector('#footer-syntax').innerText = editor.options.mode.replace('mixed', '');
 	}
 	setInterval(loadSettingsText, 100)
 	async function save() {
@@ -131,12 +134,27 @@
 	// document
 	//     .querySelector('.k-5')
 	//     .innerText = ` <style></style>`
-
-	async function copy() {
-	    input.value = editor.getValue()
-	    await input.select()
-	    document.execCommand('copy')
-	}
+	var counterResult = new Date().getDate() + ':' + new Date().getMonth() + ':' + new Date().getYear()
+	function saveTo() {
+  	var text = editor.getValue();
+  	var name = `Resut ${counterResult}`;
+  	var a = document.getElementById("a");
+  	if(editor.getOption('mode') == 'htmlmixed') {
+  		var type = 'text/html'
+  	}
+  	else if(editor.getOption('mode') == 'javascript') {
+  		var type = 'text/javascript'
+  	}
+  	else if(editor.getOption('mode') == 'css') {
+  		var type = 'text/css'
+  	}
+  	else {
+  		var type = 'text/text';
+  	}
+  	var file = new Blob([text], {type: type});
+  	a.href =  URL.createObjectURL(file);
+  	a.download = name;
+}
 
 	// function that() {
 	//     document.querySelector('.modal-content')
@@ -163,7 +181,7 @@
 	});
 	emmetCodeMirror(editor);
 	window.onclick = function(e) {
-	    if (e.clientX > document.querySelector('.text-control').getBoundingClientRect().width) {
+	    if (e.clientX > document.querySelector('.text-control').getBoundingClientRect().width && e.clientY <= window.innerHeight - 20) {
 	        editor.focus()
 	    }
 	}

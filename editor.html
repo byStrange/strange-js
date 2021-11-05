@@ -4,23 +4,23 @@
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+	<link rel="stylesheet" href="css/codemirror.css">
 	
 </head>
 <body>			
+	<div id="tick"></div>
+	<button class="btn btn-outline-success"  tabindex="-1" onclick="saveTo()" id="down_btn"><a href="" id="a">Download</a></button>
 		<div class="input-group">
 			<div class="text-control">
 			<div class="text-panel">
 				<br>
-				<div class="play btn btn-outline-success"  >play</div>
+				<div class="play btn btn-outline-success">play</div>
 				<br> <br>
 				<div class="open btn btn-outline-success" onclick="button()">Open</div>
 				<br> <br>
 				<div class="reset btn btn-outline-success" onclick="editor.setValue('' )">clear</div>
 				<br> <br>
-				<div class="btn btn-outline-success" onclick="copy(this)">copy</div>
-				<br> <br>
-				<div class="save btn btn-outline-success" style="opacity: 0;" onclick="save()">save</div>
+				<div class="save btn btn-outline-success" style="display: none;" onclick="save()">save</div>
 				<!-- <div class="live btn btn-outline-danger ">
 				<label for="check" class="form-label ">Live</label>   <input type="checkbox" class="custom-checkbox-2" id="check"></div><br> <br> -->
 				<!-- <select id="select" class="btn btn-outline-success" >
@@ -69,6 +69,8 @@
 			</div>
 			<div class="row-s">
 				<div class="col-s"><span id="footer-syntax"></span></div>
+			</div>
+			<div class="row-s">
 				<div class="col-s">Line <span id="footer-line"></span>, Column <span id="footer-column"></span></div>
 			</div>
 			<div class="row-s">
@@ -76,12 +78,11 @@
 			</div>
 		</footer>
 </body>
-	<script src="https://codemirror.net/lib/codemirror.js"></script>
-		<script src="https://codemirror.net/mode/xml/xml.js"></script>
-	<script src="https://codemirror.net/mode/css/css.js"></script>
-	<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
-	<script src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
-	<script src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="js/codemirror.js"></script>
+		<script src="js/xml.js"></script>
+	<script src="js/css.js"></script>
+	<script src="js/javascript.js"></script>
+	<script src="js/htmlmixed.js"></script>
 	<script src="js/emmet.js"></script>
 	<script src="./settings.json"></script>
 	<script src="js/main.js"></script>

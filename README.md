@@ -1,2 +1,2 @@
 # code-editor
-Code editor with js
+Code editor with javaScript

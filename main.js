@@ -2,7 +2,16 @@
 	let play = document.querySelector(`.play`);
 	let output = document.querySelector(`.output`);
 	let clear = document.querySelector(`.reset`);
+	const setting = settings.app.settings
 	clear.onclick = __trueCleaner
+	window.onload = function() {
+	    console.log('Editor started... ');
+	    editor.setOption('tabSize', setting.tab_size);
+	    editor.setOption('mode', 'htmlmixed');
+	    if (settings.color_scheme == 'Mariana') {
+	        st = document.createElement('style')
+	    }
+	}
 
 	function __trueCleaner() {
 	    editor.setValue('')
@@ -17,7 +26,7 @@
 
 	document.querySelector('#holder').onmousedown = function() {
 	    window.onmousemove = function(e) {
-	        if (!(e.clientX >= 280)) {
+	        if (!(e.clientX >= 200)) {
 	            document.querySelector('.text-control').style.width = e.clientX + 'px';
 	            if (e.clientX <= 50) {
 	                document.querySelector('.text-control').style.width = 0;
@@ -27,7 +36,7 @@
 	                }, 200)
 	            }
 	        } else {
-	            document.querySelector('.text-control').style.width = 280 + 'px'
+	            document.querySelector('.text-control').style.width = 200 + 'px'
 	        }
 	    }
 	}
@@ -81,35 +90,11 @@
 	    [fileHandle] = await window.showOpenFilePicker();
 	    let fileData = await fileHandle.getFile();
 	    if (fileData.name.split('.')[1] == 'html') {
-	        editor = CodeMirror.fromTextArea(document.querySelector('textarea.form-control'), {
-	            lineNumbers: true,
-	            tabSize: 4,
-	            mode: 'htmlmixed',
-	            lineWrapping: true,
-	            smartIndent: true,
-	            addModeClass: true,
-	            matchBrackets: true
-	        })
+	        editor.setOption('mode', 'htmlmixed')
 	    } else if (fileData.name.split('.')[1] == 'js') {
-	        editor = CodeMirror.fromTextArea(document.querySelector('textarea.form-control'), {
-	            lineNumbers: true,
-	            tabSize: 4,
-	            mode: 'javascript',
-	            lineWrapping: true,
-	            smartIndent: true,
-	            addModeClass: true,
-	            matchBrackets: true
-	        })
+	        editor.setOption('mode', 'javascript')
 	    } else if (fileData.name.split('.')[1] == 'css') {
-	        editor = CodeMirror.fromTextArea(document.querySelector('textarea.form-control'), {
-	            lineNumbers: true,
-	            tabSize: 4,
-	            mode: 'css',
-	            lineWrapping: true,
-	            smartIndent: true,
-	            addModeClass: true,
-	            matchBrackets: true
-	        })
+	        editor.setOption('mode', 'css')
 	    }
 	    document.querySelector('.text-control').style.display = 'none'
 	    document.querySelector('#holder').style.display = 'none'
@@ -121,7 +106,7 @@
 	    document.querySelector('#footer-tabsize').innerText = editor.options.tabSize
 	    document.querySelector('#footer-line').innerText = editor.getCursor().line + 1
 	    document.querySelector('#footer-column').innerText = editor.getCursor().ch;
-	    document.querySelector('#footer-column').innerText = editor.options.mode;
+	    document.querySelector('#footer-syntax').innerText = editor.options.mode;
 	}
 	setInterval(loadSettingsText, 100)
 	async function save() {
@@ -133,7 +118,10 @@
 	    fileHandle = await window.showSaveFilePicker();
 	    save()
 	}
-	document.querySelector('footer.abs').style.top = window.innerHeight - 25 + 'px'
+	window.onresize = function() {
+	    document.querySelector('footer.abs').style.top = window.innerHeight - 25 + 'px'
+	}
+	window.onresize()
 
 	function clearr() {
 	    editor.setValue('');

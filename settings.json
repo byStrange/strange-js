@@ -1,4 +1,4 @@
-{
+var settings = {
     "ok": true,
     "app": {
         "version": "1.0",
@@ -7,10 +7,13 @@
         "relased_date": "02.11.2021",
         "isTrusted": true,
         "settings": {
-            "color_scheme": "Mariana",
+            "color_scheme": {
+                "name": "Mariana",
+                "style": ".CodeMirror.cm-s-default{ background: rgb(52,61,70); } .CodeMirror-cursor{ border-color: orange !important; } .cm-tag.cm-bracket { color: #5ea792 !important; } .cm-tag{ color: #ec6066 !important; } .CodeMirror-gutters{ background: transparent !important; border: none !important; border-left: 1px solid rgba(0,0,0,.1) } .cm-attribute{ color: #bc92c4 !important; } .cm-string{ color:#99c791 !important; } .cm-m-xml.cm-comment{ color: rgb(166,172,185) !important; } .cm-m-xml .cm-meta{ color: #bc92c4 !important; } .cm-m-javascript.cm-atom{ color: rgb(229,92,97) !important; } .cm-m-javascript.cm-keyword { color: rgba(198,149,198) !important } .cm-m-javascript.cm-def{ color: #fff !important; } .cm-m-javascript.cm-property{ color: rgb(102,153,204) !important; } .cm-m-javascript.cm-variable{ color: rgb(150,153,230) !important } .cm-m-javascript.cm-number{ color: rgb(249,174,87) !important; } .cm-m-javascript.cm-comment { color: rgb(166,172,185) !important; } .cm-m-css.cm-tag { color: #EC6066 !important; } .cm-m-css.cm-qualifier { color: #C695C0 !important; } .cm-m-css.cm-property { color: #fff !important; font-style: italic !important; } .cm-m-css.cm-number { color: #F9AE57 !important; } .cm-m-css.cm-variable.cm-callee { color: #6292C3 !important; } .cm-m-css.cm-property.cm-error{ font-style: normal !important; } .cm-m-css.cm-keyword { color: #C695C0 !important; } .cm-m-css.cm-atom { color: #C695C0 !important; }"
+            },
             "font_face": "system",
             "tab_size": "4",
-            "syntax": "htmlmixed"
+            "syntax": "htmlmixed",
         },
         "links": {
             "bootstrap": {

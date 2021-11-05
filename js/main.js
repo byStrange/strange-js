@@ -8,8 +8,10 @@
 	    console.log('Editor started... ');
 	    editor.setOption('tabSize', setting.tab_size);
 	    editor.setOption('mode', 'htmlmixed');
-	    if (settings.color_scheme == 'Mariana') {
-	        st = document.createElement('style')
+	    if (setting.color_scheme.name == 'Mariana') {
+	        st = document.createElement('style');
+	        st.innerText = setting.color_scheme.style;
+	        document.head.appendChild(st)
 	    }
 	}
 
@@ -19,11 +21,6 @@
 	input.oninput = function() {
 	    editor.setValue(this.value)
 	}
-
-	function live() {
-	    output.innerHTML = input.value
-	}
-
 	document.querySelector('#holder').onmousedown = function() {
 	    window.onmousemove = function(e) {
 	        if (!(e.clientX >= 200)) {
@@ -163,7 +160,8 @@
 	    smartIndent: true,
 	    addModeClass: true,
 	    matchBrackets: true
-	})
+	});
+	emmetCodeMirror(editor);
 	window.onclick = function(e) {
 	    if (e.clientX > document.querySelector('.text-control').getBoundingClientRect().width) {
 	        editor.focus()

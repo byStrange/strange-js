@@ -126,6 +126,20 @@
 	function clearr() {
 	    editor.setValue('');
 	}
+	// const tabs = document.querySelectorAll('.tabs #tab');
+	// function tabs() {
+	// 	for(let c = 0; c < workers.length; c++) {
+	// 		const tab = `<div id="tab" class="tab">
+	// 		<span id="tab-name"> 
+	// 			${} 
+	// 		</span>
+	// 		<span id="close" class="close">&times</span>
+	// 	</div>`
+	// 	}
+	// }
+	document.querySelector('[data-work=new_file]').onclick = function() {
+		let name = prompt('Enter your file name')
+	}
 	// document.querySelector('.first-kbd').innerText = `<div class=className>...</div>
 	// `;
 	// document.querySelector('.k-2').innerText = `<div class="">...</div>`;

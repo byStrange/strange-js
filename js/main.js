@@ -142,142 +142,250 @@ document.querySelector('[data-work=new_file]').onclick = function() {
     }, 100)
 }
 od = -1
+co = 0
 document.querySelector('[data-type=html]').onclick = function() {
-        od += 1
-        if (od == 0) {
-            const int = document.createElement('input');
-            int.id = 'htmlInput';
-            int.className = 'form-control';
-            int.placeholder = 'Enter name';
-            this.appendChild(int);
-        }
-        document.querySelector('#htmlInput').onkeyup = function(e) {
-            if (e.which == 13) {
-                var tk = document.querySelectorAll(
-                    'div.tabs div.tab'
-                )
-                for (a of tk) {
-                    a.classList.remove('active-tab')
-                }
-                const tabInner = `<div id="tab" class="tab active-tab">
- 		<span id="tab-name"> 
+    od += 1
+    if (od == 0) {
+        const int = document.createElement('input');
+        int.id = 'htmlInput';
+        int.className = 'form-control';
+        int.placeholder = 'Enter name';
+        this.appendChild(int);
+    }
+    document.querySelector('#htmlInput').onkeyup = function(e) {
+        if (e.which == 13) {
+            var tk = document.querySelectorAll(
+                'div.tabs div.tab'
+            )
+            for (a of tk) {
+                a.classList.remove('active-tab')
+            }
+            const tabInner = `<div id="tab" class="tab active-tab" data-tab="${co}" data-lang="htmlmixed">
+ 		<i class="fa-brands fa-html5" style="color: rgb(213,104,47);"></i>
+        <span id="tab-name"> 
  			${this.value}.html 
  		</span>
  		<span id="close" class="close">&times</span>
 	</div>`
-                document.querySelector('.tabs').innerHTML += tabInner;
-                editor.focus();
-                editor.setOption('mode', 'htmlmixed');
-                document.querySelector('.st-bg').style.transform = 'scale(0)'
-                let elem = document.querySelectorAll('#tab');
-                for (let i = 0; i < elem.length; i++) {
-                    elem[i].onclick = function() {
-                        let j = 0;
-                        while (j < elem.length) {
-                            elem[j++].className = 'tab';
-                            // this.classList.add('active-tab')
-                        }
-                        elem[i].className = 'tab tab-active'
+            co += 1
+            document.querySelector('.tabs').innerHTML += tabInner;
+            editor.focus();
+            // editor.setOption('mode', 'htmlmixed');
+            document.querySelector('.st-bg').style.transform = 'scale(0)'
+            let close = document.querySelectorAll('#close');
+            for (let kn = 0; kn < close.length; kn++) {
+                close[kn].onclick = function() {
+                    this.parentNode.remove();
+                    editor.setValue(bvb['codeHtml0'])
+                }
+            }
+            let elem = document.querySelectorAll('#tab');
+            for (let i = 0; i < elem.length; i++) {
+                elem[i].onclick = function() {
+                    let j = 0;
+                    while (j < elem.length) {
+                        elem[j].className = 'tab';
+                        j++
                     }
+                    // this.classList.add('active-tab')
+                    this.className = 'tab active-tab'
+                    let nt = this.getAttribute('data-tab')
+                    editor.setValue(bvb['codeHtml' + nt]);
+                    let lang = this.getAttribute('data-lang');
+                    editor.setOption('mode','htmlmixed')
+                    editor.focus()
                 }
             }
         }
+    }
+}
 
-        const bvb = {}
-        document.onkeyup = function(e) {
-            const el = document.querySelectorAll('.tabs .tab');
-            if (el) {
-                for (let i = 0; i < el.length; i++) {
-                    if (
-                        el[i].classList.value.includes('active-tab')
-                    ) {
-                        bvb['code' + i] = editor.getValue()
+const bvb = {}
+document.onkeyup = function(e) {
+    const el = document.querySelectorAll('.tabs .tab');
+    if (el) {
+        for (let i = 0; i < el.length; i++) {
+            if (
+                el[i].classList.value.includes('active-tab')
+            ) {
+                bvb['codeHtml' + i] = editor.getValue()
+            }
+        }
+    }
+}
+om = -1
+document.querySelector('[data-type=css]').onclick = function() {
+    om += 1
+    if (om == 0) {
+        const intCss = document.createElement('input');
+        intCss.className = 'form-control';
+        intCss.id = 'cssInput';
+        intCss.className = 'form-control';
+        intCss.placeholder = 'Enter name'
+        this.appendChild(intCss)
+    }
+    document.querySelector('#cssInput').onkeyup = function(e) {
+        if (e.which == 13) {
+            var tk = document.querySelectorAll(
+                'div.tabs div.tab'
+            )
+            for (a of tk) {
+                a.classList.remove('active-tab')
+            }
+            const tabInner = `<div id="tab" class="tab active-tab" data-tab="${co}" data-lang="css">
+        <i class="fa-brands fa-css3-alt" style="color: rgb(68,114,207);"></i>
+        <span id="tab-name"> 
+            ${this.value}.css 
+        </span>
+        <span id="close" class="close">&times</span>
+    </div>`
+            co += 1
+            document.querySelector('.tabs').innerHTML += tabInner;
+            editor.focus();
+            // editor.setOption('mode', 'css');
+            document.querySelector('.st-bg').style.transform = 'scale(0)'
+            let close = document.querySelectorAll('#close');
+            for (let kn = 0; kn < close.length; kn++) {
+                close[kn].onclick = function() {
+                    this.parentNode.remove();
+                    editor.setValue(bvb['codeHtml0'])
+                }
+            }
+            let elem = document.querySelectorAll('#tab');
+            for (let i = 0; i < elem.length; i++) {
+                elem[i].onclick = function() {
+                    let j = 0;
+                    while (j < elem.length) {
+                        elem[j].className = 'tab';
+                        j++
                     }
+                    // this.classList.add('active-tab')
+                    this.className = 'tab active-tab'
+                    let nt = this.getAttribute('data-tab')
+                    editor.setValue(bvb['codeHtml' + nt]);
+                   let lang = this.getAttribute('data-lang');
+                    editor.setOption('mode',lang)
+                    editor.focus()
                 }
             }
         }
-        om = -1
-        document.querySelector('[data-type=css]').onclick = function() {
-            om += 1
-            if (om == 0) {
-                const intCss = document.createElement('input');
-                intCss.className = 'form-control';
-                intCss.id = 'cssInput';
-                intCss.className = 'form-control';
-                intCss.placeholder = 'Enter name'
-                this.appendChild(intCss)
+    }
+}
+oj = -1
+document.querySelector('[data-type=js]').onclick = function() {
+    oj += 1
+    if (oj == 0) {
+        const intJs = document.createElement('input');
+        intJs.className = 'form-control';
+        intJs.id = 'jsInput';
+        intJs.className = 'form-control';
+        intJs.placeholder = 'Enter name'
+        this.appendChild(intJs);
+    }
+    document.querySelector('#jsInput').onkeyup = function(e) {
+        if (e.which == 13) {
+            var tk = document.querySelectorAll(
+                'div.tabs div.tab'
+            )
+            for (a of tk) {
+                a.classList.remove('active-tab')
+            }
+            const tabInner = `<div id="tab" class="tab active-tab" data-tab="${co}" data-lang="javascript">
+        <i class="fa-brands fa-js-square" style="color: rgb(240, 219, 79);"></i>
+        <span id="tab-name"> 
+            ${this.value}.js 
+        </span>
+        <span id="close" class="close">&times</span>
+    </div>`
+            co += 1
+            document.querySelector('.tabs').innerHTML += tabInner;
+            editor.focus();
+            // editor.setOption('mode', 'js');
+            document.querySelector('.st-bg').style.transform = 'scale(0)'
+            let close = document.querySelectorAll('#close');
+            for (let kn = 0; kn < close.length; kn++) {
+                close[kn].onclick = function() {
+                    this.parentNode.remove();
+                    editor.setValue(bvb['codeHtml0'])
+                }
+            }
+            let elem = document.querySelectorAll('#tab');
+            for (let i = 0; i < elem.length; i++) {
+                elem[i].onclick = function() {
+                    let j = 0;
+                    while (j < elem.length) {
+                        elem[j].className = 'tab';
+                        j++
+                    }
+                    this.className = 'tab active-tab'
+                    let nt = this.getAttribute('data-tab')
+                    editor.setValue(bvb['codeHtml' + nt]);
+                    let lang = this.getAttribute('data-lang');
+                    editor.setOption('mode',lang)
+                    editor.focus()
+                }
             }
         }
-        oj = -1
-        document.querySelector('[data-type=js]').onclick = function() {
-            oj += 1
-            if (oj == 0) {
-                const intJs = document.createElement('input');
-                intJs.className = 'form-control';
-                intJs.id = 'jsInput';
-                intJs.className = 'form-control';
-                intJs.placeholder = 'Enter name'
-                this.appendChild(intJs);
-            }
-        }
+    }
+}
 
 
-        // document.querySelector('.first-kbd').innerText = `<div class=className>...</div>
-        // `;
-        // document.querySelector('.k-2').innerText = `<div class="">...</div>`;
-        // document.querySelector('.k-3').innerText = `<div id="">...</div>`;
-        // document.querySelector('.k-4').innerText = `<link>`;
-        // document
-        //     .querySelector('.k-5')
-        //     .innerText = ` <style></style>`
-        var counterResult = new Date().getDate() + ':' + new Date().getMonth() + ':' + new Date().getYear()
+// document.querySelector('.first-kbd').innerText = `<div class=className>...</div>
+// `;
+// document.querySelector('.k-2').innerText = `<div class="">...</div>`;
+// document.querySelector('.k-3').innerText = `<div id="">...</div>`;
+// document.querySelector('.k-4').innerText = `<link>`;
+// document
+//     .querySelector('.k-5')
+//     .innerText = ` <style></style>`
+var counterResult = new Date().getDate() + ':' + new Date().getMonth() + ':' + new Date().getYear()
 
-        function saveTo() {
-            var text = editor.getValue();
-            var name = `Resut ${counterResult}`;
-            var a = document.getElementById("a");
-            if (editor.getOption('mode') == 'htmlmixed') {
-                var type = 'text/html'
-            } else if (editor.getOption('mode') == 'javascript') {
-                var type = 'text/javascript'
-            } else if (editor.getOption('mode') == 'css') {
-                var type = 'text/css'
-            } else {
-                var type = 'text/text';
-            }
-            var file = new Blob([text], {
-                type: type
-            });
-            a.href = URL.createObjectURL(file);
-            a.download = name;
-        }
+function saveTo() {
+    var text = editor.getValue();
+    var name = `Resut ${counterResult}`;
+    var a = document.getElementById("a");
+    if (editor.getOption('mode') == 'htmlmixed') {
+        var type = 'text/html'
+    } else if (editor.getOption('mode') == 'javascript') {
+        var type = 'text/javascript'
+    } else if (editor.getOption('mode') == 'css') {
+        var type = 'text/css'
+    } else {
+        var type = 'text/text';
+    }
+    var file = new Blob([text], {
+        type: type
+    });
+    a.href = URL.createObjectURL(file);
+    a.download = name;
+}
 
-        // function that() {
-        //     document.querySelector('.modal-content')
-        //         .style
-        //         .top = `30px`
-        // }
+// function that() {
+//     document.querySelector('.modal-content')
+//         .style
+//         .top = `30px`
+// }
 
-        CodeMirror.replace = function(element) {
-            if (typeof element == "string")
-                element = document.getElementById(element);
-            return function(newElement) {
-                element.parentNode.replaceChild(newElement, element);
-            };
-        };
-        // setTimeout(that, 2000);
-        var editor = CodeMirror.fromTextArea(document.querySelector('textarea.form-control'), {
-            lineNumbers: true,
-            tabSize: 4,
-            mode: 'htmlmixed',
-            lineWrapping: true,
-            smartIndent: true,
-            addModeClass: true,
-            matchBrackets: true
-        });
-        emmetCodeMirror(editor);
-        window.onclick = function(e) {
-            // if (e.clientX > document.querySelector('.text-control').getBoundingClientRect().width && e.clientY <= window.innerHeight - 20) {
-            //     editor.focus()
-            // }
-        }
+CodeMirror.replace = function(element) {
+    if (typeof element == "string")
+        element = document.getElementById(element);
+    return function(newElement) {
+        element.parentNode.replaceChild(newElement, element);
+    };
+};
+// setTimeout(that, 2000);
+var editor = CodeMirror.fromTextArea(document.querySelector('textarea.form-control'), {
+    lineNumbers: true,
+    tabSize: 4,
+    mode: 'htmlmixed',
+    lineWrapping: true,
+    smartIndent: true,
+    addModeClass: true,
+    matchBrackets: true
+});
+emmetCodeMirror(editor);
+window.onclick = function(e) {
+    // if (e.clientX > document.querySelector('.text-control').getBoundingClientRect().width && e.clientY <= window.innerHeight - 20) {
+    //     editor.focus()
+    // }
+}

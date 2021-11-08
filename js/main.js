@@ -376,7 +376,26 @@ function saveTo() {
     a.href = URL.createObjectURL(file);
     a.download = name;
 }
-
+function saveTo_2() {
+    var text = editor.getValue();
+    var name = `Resut ${counterResult}`;
+    var a = document.getElementById("d_a");
+    if (editor.getOption('mode') == 'htmlmixed') {
+        var type = 'text/html'
+    } else if (editor.getOption('mode') == 'javascript') {
+        var type = 'text/javascript'
+    } else if (editor.getOption('mode') == 'css') {
+        var type = 'text/css'
+    } else {
+        var type = 'text/text';
+    }
+    var file = new Blob([text], {
+        type: type
+    });
+    a.href = URL.createObjectURL(file);
+    a.download = name;
+}
+document.querySelector('[data-work=download]').onclick = saveTo_2
 // function that() {
 //     document.querySelector('.modal-content')
 //         .style

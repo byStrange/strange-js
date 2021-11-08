@@ -12,9 +12,6 @@ window.onload = function() {
     }
 }
 
-function __trueCleaner() {
-    editor.setValue('')
-}
 
 document.querySelector('#holder').onmousedown = function() {
     window.onmousemove = function(e) {
@@ -54,6 +51,19 @@ window.onmouseup = function() {
 
 
 // }
+
+function doCopy() {
+    const copyText = document.getSelection().toString()
+    let t = document.createElement('input');
+    t.style.display = 'none';
+    t.value = copyText;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand('copy')   
+}
+
+document.querySelector('[data-work=copy]').onclick = doCopy
+
 let counter = 0
 play.onclick = live
 

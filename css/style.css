@@ -17,7 +17,7 @@ div.tabs{
 	width:  100%;
 	height: 45px;
 	background: rgb(29,34,39);
-	padding-left: 75px;
+	padding-left: 74px;
 	display: flex;
 }
 div.tabs > div.tab{
@@ -27,7 +27,6 @@ div.tabs > div.tab{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-bottom: 4px;
 	border-radius: 5px;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -42,7 +41,21 @@ div.active-tab{
 	background: rgb(52,61,70);
 	position: relative;
 	border-bottom-left-radius: 0px !important;
-	border-bottom-right-radius:0px !important ;
+	border-bottom-right-radius:0px !important;
+	border-left: 1px solid gray;
+}
+[data-tilt] {
+	transform-style: preserve-3d;
+}
+input{
+	border: none;
+	padding: 3px 2px;
+	height:  24px;
+	background: rgba(13,17,23) !important;
+	color: #fff !important;
+}
+:focus{
+	outline: none;
 }
 textarea{
 	display: block;
@@ -77,12 +90,23 @@ div.output{
 	left: 8px;	
 	word-wrap: break-word;
 }
+div.st-bg{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 1213213;
+	background: rgba(0,0,0,.5);
+	display: none;
+	transition: 150ms;
+}
 div.modal-choose{
 	position: absolute;
 	z-index: 999;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%) scale(0);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -110,8 +134,10 @@ div.modal-choose > div.st-c > div.block{
 div.modal-choose > div.st-c > div.block > span{
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 19px;
+	transform: translateZ(10px);
 }
 div.modal-choose > div.st-c > div.block > div.st-l > i{
+	transform: translateZ(10px);
 	font-size: 25px;
 }
 [data-type="html"] i {

@@ -1,5 +1,5 @@
 document.onclick = hideMenu;
-document.oncontextmenu = rightClick;
+window.oncontextmenu = rightClick;
 
 function hideMenu() {
     document.getElementById("contextMenu")

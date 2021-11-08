@@ -1,8 +1,6 @@
 let play = document.querySelector(`.play`);
 let output = document.querySelector(`.output`);
-let clear = document.querySelector(`.reset`);
 const setting = settings.app.settings
-clear.onclick = __trueCleaner
 window.onload = function() {
     console.log('Editor started... ');
     editor.setOption('tabSize', setting.tab_size);
@@ -152,8 +150,10 @@ document.querySelector('[data-type=html]').onclick = function() {
         int.placeholder = 'Enter name';
         this.appendChild(int);
     }
+    document.querySelector('#htmlInput').style.display = 'block'
     document.querySelector('#htmlInput').onkeyup = function(e) {
         if (e.which == 13) {
+            document.querySelector('#htmlInput').style.display = 'none'
             var tk = document.querySelectorAll(
                 'div.tabs div.tab'
             )
@@ -167,6 +167,7 @@ document.querySelector('[data-type=html]').onclick = function() {
  		</span>
  		<span id="close" class="close">&times</span>
 	</div>`
+            document.querySelector('#htmlInput').value = ''
             co += 1
             document.querySelector('.tabs').innerHTML += tabInner;
             editor.focus();
@@ -192,7 +193,7 @@ document.querySelector('[data-type=html]').onclick = function() {
                     let nt = this.getAttribute('data-tab')
                     editor.setValue(bvb['codeHtml' + nt]);
                     let lang = this.getAttribute('data-lang');
-                    editor.setOption('mode','htmlmixed')
+                    editor.setOption('mode', 'htmlmixed')
                     editor.focus()
                 }
             }
@@ -224,8 +225,10 @@ document.querySelector('[data-type=css]').onclick = function() {
         intCss.placeholder = 'Enter name'
         this.appendChild(intCss)
     }
+    document.querySelector('#cssInput').style.display = 'block'
     document.querySelector('#cssInput').onkeyup = function(e) {
         if (e.which == 13) {
+        document.querySelector('#cssInput').style.display = 'none'
             var tk = document.querySelectorAll(
                 'div.tabs div.tab'
             )
@@ -239,6 +242,7 @@ document.querySelector('[data-type=css]').onclick = function() {
         </span>
         <span id="close" class="close">&times</span>
     </div>`
+            document.querySelector('#cssInput').value = ''
             co += 1
             document.querySelector('.tabs').innerHTML += tabInner;
             editor.focus();
@@ -263,8 +267,8 @@ document.querySelector('[data-type=css]').onclick = function() {
                     this.className = 'tab active-tab'
                     let nt = this.getAttribute('data-tab')
                     editor.setValue(bvb['codeHtml' + nt]);
-                   let lang = this.getAttribute('data-lang');
-                    editor.setOption('mode',lang)
+                    let lang = this.getAttribute('data-lang');
+                    editor.setOption('mode', lang)
                     editor.focus()
                 }
             }
@@ -282,8 +286,10 @@ document.querySelector('[data-type=js]').onclick = function() {
         intJs.placeholder = 'Enter name'
         this.appendChild(intJs);
     }
+    document.querySelector('#jsInput').style.display = 'block';
     document.querySelector('#jsInput').onkeyup = function(e) {
-        if (e.which == 13) {
+        if (e.which == 13) {    
+        document.querySelector('#jsInput').style.display = 'none';
             var tk = document.querySelectorAll(
                 'div.tabs div.tab'
             )
@@ -297,6 +303,7 @@ document.querySelector('[data-type=js]').onclick = function() {
         </span>
         <span id="close" class="close">&times</span>
     </div>`
+            document.querySelector('#jsInput').value = '';
             co += 1
             document.querySelector('.tabs').innerHTML += tabInner;
             editor.focus();
@@ -321,7 +328,7 @@ document.querySelector('[data-type=js]').onclick = function() {
                     let nt = this.getAttribute('data-tab')
                     editor.setValue(bvb['codeHtml' + nt]);
                     let lang = this.getAttribute('data-lang');
-                    editor.setOption('mode',lang)
+                    editor.setOption('mode', lang)
                     editor.focus()
                 }
             }

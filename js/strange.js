@@ -423,14 +423,54 @@ if (window === undefined) {
       }
     } catch (e) {}
   };
+//   function createApp(app, el) {
+//     if (is.obj(app)) {
+//       if ($(`${el}`) instanceof HTMLElement) {
+//         let template = $(`${el}`).html();
+//         let result = template.replace(
+//           /\{\{[ ]{0,}([\w\_-]{1,})[ ]{0,}\}\}/gi,
+//           function (...match) {
+//             return typeof app[match[1]] !== "undefined" ? app[match[1]] : "";
+//           }
+//         );
+//         $(`${el}`).innerHTML = result;
+//       } else {
+//         warn("Your second argument is not type of html element");
+//       }
+//     } else {
+//       error("Your data must be Object");
+//     }
+//   }
   function createApp(app, el) {
     if (is.obj(app)) {
       if ($(`${el}`) instanceof HTMLElement) {
         let template = $(`${el}`).html();
         let result = template.replace(
-          /\{\{[ ]{0,}([\w\_-]{1,})[ ]{0,}\}\}/gi,
+          /\{\{[ ]{0,}([a-zA-Z0-9.]{1,})[ ]{0,}\}\}/gi,
           function (...match) {
-            return typeof app[match[1]] !== "undefined" ? app[match[1]] : "";
+            match = (match[1].split('.'));
+            res = ''
+              if(match.length == 1) {
+                res = match[0];
+                return app[res]
+              }
+    
+     
+              else {
+                for(let me = 0; me < match.length; me++) {
+                  res += `${match[me]}` + ','
+                }
+                let stage = res.split(',');
+                if(stage.length == 3) {
+                  return (app[stage[0]][stage[1]])
+                }
+                if (stage.length == 4){
+                  return (app[stage[0]][stage[1]][stage[2]])
+                }
+                if (stage.length == 5){
+                  return (app[stage[0]][stage[1]][stage[2]][stage[3]])
+                }
+              }
           }
         );
         $(`${el}`).innerHTML = result;

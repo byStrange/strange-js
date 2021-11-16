@@ -674,3 +674,4 @@ if (window === undefined) {
     }
   };
 }
+console.log('Hello world')

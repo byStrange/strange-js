@@ -29,3 +29,11 @@ Or if you want to grab all ids you can use like that
 console.log($containers) // not $container
 // it returns all elements that have 'container' id 
 ```
+
+<h3>You can also use cdn linl</h3>
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js"></script>
+    <!-- or minimized -->
+<script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.min.js"></script>
+```

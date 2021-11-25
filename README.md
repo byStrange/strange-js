@@ -34,6 +34,9 @@ console.log($containers) // not $container
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js"></script>
-    <!-- or minimized -->
+```
+
+<h3>or minimized</h3>
+```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.min.js"></script>
 ```

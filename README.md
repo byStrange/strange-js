@@ -30,13 +30,14 @@ console.log($containers) // not $container
 // it returns all elements that have 'container' id 
 ```
 
-<h3>You can also use cdn linl</h3>
+<h3>You can also use cdn <a href="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js">link</h3>
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js"></script>
 ```
 
 <h3>or minimized</h3>
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.min.js"></script>
 ```

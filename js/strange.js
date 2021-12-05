@@ -356,6 +356,10 @@ if (window === undefined) {
   };
   HTMLElement.prototype.replace = function replace(tg) {
     this.innerHTML = this.textContent.replace(/[a-zA-z]/g, `<${tg}>$&</${tg}>`);
+    let bugs = document.querySelectorAll(tg);
+    for (bad of bugs){
+      if(!bad.text()) bad.html('&nbsp')
+    }
   };
   HTMLElement.prototype.on = function (op, cx) {
     try {

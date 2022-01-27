@@ -735,31 +735,5 @@ if (window === undefined) {
   String.prototype.reverse = function () {
     return kns(this).split("").reverse().join("");
   };
-  Object.prototype.templ = function (safe = false) {
-    var temp = this;
-    if (safe) {
-      customElements.define(
-        temp.name,
-        class extends HTMLElement {
-          connectedCallback() {
-            const shadow = this.attachShadow({
-              mode: "closed",
-            });
-            shadow.innerHTML = temp.template;
-          }
-        }
-      );
-    } else {
-      customElements.define(
-        temp.name,
-        class extends HTMLElement {
-          connectedCallback() {
-            const shadow = this;
-            shadow.innerHTML = temp.template;
-          }
-        }
-      );
-    }
-  };
 }
 console.log('No bugs found, everything is good ')

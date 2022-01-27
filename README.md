@@ -41,3 +41,4 @@ console.log($containers) // not $container
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.min.js"></script>
 ```
+<p>First Release 2021.08.07</p>

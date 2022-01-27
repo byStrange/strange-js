@@ -1,6 +1,6 @@
 // All rights reserved authors https://telegra.ph/07-05authors
 // Strange.js no copyright ® 2021.08.07  registered
-// version 1.0 by www.instagram.com/qosimov_rahmatullo
+// version 1.0
 if (window === undefined) {
   console.log("Strangejs requires window and document");
 }
@@ -35,7 +35,94 @@ if (window === undefined) {
       return split[1];
     }
   }
+  class TimeEvery {
+    constructor(num) {
+      this.num = num;
+    }
 
+    minutes(callBack) {
+      return setInterval(callBack, this.num * 1000);
+    }
+    milliSeconds(callBack) {
+      return setInterval(callBack, this.num);
+    }
+    hours(callBack) {
+      return setInterval(callBack, this.num * 3600 * 1000);
+    }
+    days(callBack) {
+      return setInterval(callBack, this.num * 86400000);
+    }
+  }
+
+  class TimeAfter {
+    constructor(num) {
+      this.num = num;
+    }
+    minutes(callBack) {
+      return setTimeout(callBack, this.num * 1000);
+    }
+    milliSeconds(callBack) {
+      return setTimeout(callBack, this.num);
+    }
+    hours(callBack) {
+      return setTimeout(callBack, this.num * 3600 * 1000);
+    }
+    days(callBack) {
+      return setTimeout(callBack, this.num * 86400000);
+    }
+  }
+
+  class SingleTimeEvery {
+    constructor(num) {
+      this.num = num;
+    }
+    minute(callBack) {
+      return setInterval(callBack, 1000);
+    }
+    milliSecond(callBack) {
+      return setInterval(callBack, 1);
+    }
+    hour(callBack) {
+      return setInterval(callBack, 3600 * 1000);
+    }
+    day(callBack) {
+      return setInterval(callBack, 86400000);
+    }
+  }
+
+  class SingleTimeAfter {
+    constructor(num) {
+      this.num = num;
+    }
+    minute(callBack) {
+      return setTimeout(callBack, 1000);
+    }
+    milliSecond(callBack) {
+      return setTimeout(callBack, 1);
+    }
+    hour(callBack) {
+      return setTimeout(callBack, 3600 * 1000);
+    }
+    day(callBack) {
+      return setTimeout(callBack, 86400000);
+    }
+  }
+
+  const every = function (num) {
+    if (num) {
+      if (typeof num == "number") {
+        return new TimeEvery(num);
+      } else throw new Error("Expected time must be integer");
+    } else return new SingleTimeEvery(num);
+  };
+
+  const after = function (num) {
+    if (num) {
+      if (typeof num == "number") {
+        return new TimeAfter(num);
+      } else throw new Error("Expected time must be integer");
+    } else return new SingleTimeAfter(num);
+  };
   function convertPxToUnit(el, value, unit) {
     var valueUnit = getUnit(value);
     if (arrayContains([unit, "deg", "rad", "turn"], valueUnit)) {
@@ -357,8 +444,8 @@ if (window === undefined) {
   HTMLElement.prototype.replace = function replace(tg) {
     this.innerHTML = this.textContent.replace(/[a-zA-z]/g, `<${tg}>$&</${tg}>`);
     let bugs = document.querySelectorAll(tg);
-    for (bad of bugs){
-      if(!bad.text()) bad.html('&nbsp')
+    for (bad of bugs) {
+      if (!bad.text()) bad.html("&nbsp");
     }
   };
   HTMLElement.prototype.on = function (op, cx) {
@@ -427,24 +514,24 @@ if (window === undefined) {
       }
     } catch (e) {}
   };
-//   function createApp(app, el) {
-//     if (is.obj(app)) {
-//       if ($(`${el}`) instanceof HTMLElement) {
-//         let template = $(`${el}`).html();
-//         let result = template.replace(
-//           /\{\{[ ]{0,}([\w\_-]{1,})[ ]{0,}\}\}/gi,
-//           function (...match) {
-//             return typeof app[match[1]] !== "undefined" ? app[match[1]] : "";
-//           }
-//         );
-//         $(`${el}`).innerHTML = result;
-//       } else {
-//         warn("Your second argument is not type of html element");
-//       }
-//     } else {
-//       error("Your data must be Object");
-//     }
-//   }
+  //   function createApp(app, el) {
+  //     if (is.obj(app)) {
+  //       if ($(`${el}`) instanceof HTMLElement) {
+  //         let template = $(`${el}`).html();
+  //         let result = template.replace(
+  //           /\{\{[ ]{0,}([\w\_-]{1,})[ ]{0,}\}\}/gi,
+  //           function (...match) {
+  //             return typeof app[match[1]] !== "undefined" ? app[match[1]] : "";
+  //           }
+  //         );
+  //         $(`${el}`).innerHTML = result;
+  //       } else {
+  //         warn("Your second argument is not type of html element");
+  //       }
+  //     } else {
+  //       error("Your data must be Object");
+  //     }
+  //   }
   function createApp(app, el) {
     if (is.obj(app)) {
       if ($(`${el}`) instanceof HTMLElement) {
@@ -452,29 +539,26 @@ if (window === undefined) {
         let result = template.replace(
           /\{\{[ ]{0,}([a-zA-Z0-9.]{1,})[ ]{0,}\}\}/gi,
           function (...match) {
-            match = (match[1].split('.'));
-            res = ''
-              if(match.length == 1) {
-                res = match[0];
-                return app[res]
+            match = match[1].split(".");
+            res = "";
+            if (match.length == 1) {
+              res = match[0];
+              return app[res];
+            } else {
+              for (let me = 0; me < match.length; me++) {
+                res += `${match[me]}` + ",";
               }
-    
-     
-              else {
-                for(let me = 0; me < match.length; me++) {
-                  res += `${match[me]}` + ','
-                }
-                let stage = res.split(',');
-                if(stage.length == 3) {
-                  return (app[stage[0]][stage[1]])
-                }
-                if (stage.length == 4){
-                  return (app[stage[0]][stage[1]][stage[2]])
-                }
-                if (stage.length == 5){
-                  return (app[stage[0]][stage[1]][stage[2]][stage[3]])
-                }
+              let stage = res.split(",");
+              if (stage.length == 3) {
+                return app[stage[0]][stage[1]];
               }
+              if (stage.length == 4) {
+                return app[stage[0]][stage[1]][stage[2]];
+              }
+              if (stage.length == 5) {
+                return app[stage[0]][stage[1]][stage[2]][stage[3]];
+              }
+            }
           }
         );
         $(`${el}`).innerHTML = result;
@@ -678,4 +762,4 @@ if (window === undefined) {
     }
   };
 }
-console.log('Hello world')
+console.log('No bugs found, everything is good ')

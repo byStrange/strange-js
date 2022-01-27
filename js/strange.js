@@ -1,5 +1,5 @@
 // All rights reserved authors https://telegra.ph/07-05authors
-// Strange.js no copyright ® 2021.08.07  registered
+// Strange.js no copyright ® 2022.01.27  registered
 // version 1.0
 if (window === undefined) {
   console.log("Strangejs requires window and document");

@@ -4,7 +4,6 @@
 if (window === undefined) {
   console.log("Strangejs requires window and document");
 }
-{
   function err(error_name, error_count) {
     return `Uncaught TypeError: Failed to execute ${error_name} on document: ${error_count} arguments required`;
   }
@@ -735,5 +734,4 @@ if (window === undefined) {
   String.prototype.reverse = function () {
     return kns(this).split("").reverse().join("");
   };
-}
 console.log('No bugs found, everything is good ')

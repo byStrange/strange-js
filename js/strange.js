@@ -39,7 +39,7 @@ if (window === undefined) {
       this.num = num;
     }
 
-    minutes(callBack) {
+    seconds(callBack) {
       return setInterval(callBack, this.num * 1000);
     }
     milliSeconds(callBack) {
@@ -51,13 +51,16 @@ if (window === undefined) {
     days(callBack) {
       return setInterval(callBack, this.num * 86400000);
     }
+    minutes(callBack) {
+      return setInterval(callBack , this.num * 60000)
+    }
   }
 
   class TimeAfter {
     constructor(num) {
       this.num = num;
     }
-    minutes(callBack) {
+    seconds(callBack) {
       return setTimeout(callBack, this.num * 1000);
     }
     milliSeconds(callBack) {
@@ -69,13 +72,16 @@ if (window === undefined) {
     days(callBack) {
       return setTimeout(callBack, this.num * 86400000);
     }
+    minutes(callBack) {
+      return setTimeout(callBack, this.num * 60000)
+    }
   }
 
   class SingleTimeEvery {
     constructor(num) {
       this.num = num;
     }
-    minute(callBack) {
+    second(callBack) {
       return setInterval(callBack, 1000);
     }
     milliSecond(callBack) {
@@ -87,14 +93,20 @@ if (window === undefined) {
     day(callBack) {
       return setInterval(callBack, 86400000);
     }
+    minute (callBack) {
+      return setInterval(callBack, 60000)
+    } 
   }
 
   class SingleTimeAfter {
     constructor(num) {
       this.num = num;
     }
-    minute(callBack) {
+    second(callBack) {
       return setTimeout(callBack, 1000);
+    }
+    minute(callBack) {
+      return setTimeout(callBack, 60000)
     }
     milliSecond(callBack) {
       return setTimeout(callBack, 1);

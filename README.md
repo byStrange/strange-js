@@ -32,7 +32,7 @@ console.log($containers) // not $container
 
 ## every
 
-<p>we have every function that makes javasript "setInterval" easier. For example</p>
+<p>we have every function that makes javascript "setInterval" easier. For example</p>
 
 
 ```js
@@ -78,10 +78,10 @@ after(2).days(() => {
 
 ## Handling
 
-<p>And if you want to handle them to stop or something else you should use them with a variable</p>
+<p>And if you want to handle them to stop or something else you should use them with a variable </p>
 ```js
 let e1 = every(4).seconds(() => {
-    console.log('Running ...')
+    console.log('Running')
 })
 after(16).seconds(() => {
     clearInterval(e1)

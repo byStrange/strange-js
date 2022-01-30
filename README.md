@@ -41,7 +41,7 @@ every(5).seconds(funtion CallBack() {
 })
 ```
 
-<code> every(number).[time](callBack) </code>
+<code> every(number).time(callBack) </code>
 <p> we have 5 methods for this </p>
 <ul>
     <li>milliSeconds</li>

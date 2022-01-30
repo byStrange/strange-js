@@ -30,6 +30,93 @@ console.log($containers) // not $container
 // it returns all elements that have 'container' id 
 ```
 
+## every
+
+<p>we have every function that makes javasript "setInterval" easier. For example</p>
+
+
+```js
+every(5).seconds(funtion CallBack() {
+    console.log("It's been 5 seconds")
+})
+```
+
+<code> every(number).[time](callBack) </code>
+<p> we have 5 methods for this </p>
+<ul>
+    <li>milliSeconds</li>
+    <li>seconds</li>
+    <li>minutes</li>
+    <li>hours</li>
+    <li>days</li>
+</ul>
+```js
+every(2)
+.minutes(()=> {
+    console.log('Something')
+})
+```
+
+## after
+
+<p>and after function is easier form of "setTimeout" and it looks like "every" function </p>
+
+```js
+after(2).days(() => {
+    console.log('Days')
+})
+```
+<p>and it has also 4 methods</p>
+
+<ul>
+    <li>milliSeconds</li>
+    <li>seconds</li>
+    <li>minutes</li>
+    <li>hours</li>
+    <li>days</li>
+</ul>
+
+## Handling
+
+<p>And if you want to handle them to stop or something else you should use them with a variable</p>
+```js
+let e1 = every(4).seconds(() => {
+    console.log('Running ...')
+})
+after(16).seconds(() => {
+    clearInterval(e1)
+    console.log('interval stopped')
+})
+```
+<p>for "after"</p>
+```js
+let t1 = after(5).minutes(() => {
+    console.log('Finally i worked')
+})
+clearTimeout(t1) // before running t1 was stopped
+```
+
+
+### Note:
+<p>If you don't give any number to "every" or "after" functions they think you entered 1 then there would be some changes. For example</p>
+
+```js
+every().minute(()=> {
+    console.log('minute')
+})
+
+every(1).minutes(() => {
+    console.log('minute')
+})
+
+// the first one as the same as second one
+
+every(1).minute(callBack)  // this occurs error
+every().minutes(callBack)  // this occurs error also
+ 
+```
+
+
 <h3>You can also use cdn <a href="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js">link</a></h3>
 
 ```html

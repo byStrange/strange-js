@@ -515,61 +515,7 @@ HTMLElement.prototype.on = function (op, cx) {
     }
   } catch (e) {}
 };
-//   function createApp(app, el) {
-//     if (is.obj(app)) {
-//       if ($(`${el}`) instanceof HTMLElement) {
-//         let template = $(`${el}`).html();
-//         let result = template.replace(
-//           /\{\{[ ]{0,}([\w\_-]{1,})[ ]{0,}\}\}/gi,
-//           function (...match) {
-//             return typeof app[match[1]] !== "undefined" ? app[match[1]] : "";
-//           }
-//         );
-//         $(`${el}`).innerHTML = result;
-//       } else {
-//         warn("Your second argument is not type of html element");
-//       }
-//     } else {
-//       error("Your data must be Object");
-//     }
-//   }
-function createApp(app, el) {
-  if (is.obj(app)) {
-    if ($(`${el}`) instanceof HTMLElement) {
-      let template = $(`${el}`).html();
-      let result = template.replace(
-        /\{\{[ ]{0,}([a-zA-Z0-9.]{1,})[ ]{0,}\}\}/gi,
-        function (...match) {
-          match = match[1].split(".");
-          res = "";
-          if (match.length == 1) {
-            res = match[0];
-            return app[res];
-          } else {
-            for (let me = 0; me < match.length; me++) {
-              res += `${match[me]}` + ",";
-            }
-            let stage = res.split(",");
-            if (stage.length == 3) {
-              return app[stage[0]][stage[1]];
-            }
-            if (stage.length == 4) {
-              return app[stage[0]][stage[1]][stage[2]];
-            }
-            if (stage.length == 5) {
-              return app[stage[0]][stage[1]][stage[2]][stage[3]];
-            }
-          }
-        }
-      );
-      $(`${el}`).innerHTML = result;
-    } else {
-      warn("Your second argument is not type of html element");
-    }
-  } else {
-    error("Your data must be Object");
-  }
-}
+
 Array.prototype.mix = function () {
   let currentIndex = this.length,
     randomIndex;
@@ -728,4 +674,41 @@ String.prototype.mix = function mix(n) {
 String.prototype.reverse = function () {
   return kns(this).split("").reverse().join("");
 };
+
+class CreateApp {
+    constructor(app, el) {
+        this.app = app;
+        this.el = document.querySelector(el);
+        this.text = this.el.innerHTML;
+        this.template = '';
+   }
+
+    makeTemplate() {
+        let app = this.app;
+        let text = this.text;
+        let b = text.replace(/\{\{[ ]{0,}([a-zA-Z0-9.()]{1,})[ ]{0,}\}\}/gi, function (...match) {
+            let m = match[1];
+            try {
+                return eval('app.' + m);
+            } catch (err) {
+                throw new Error(err)
+            }
+        })
+        this.template = b;
+    }
+    render() {
+        this.makeTemplate();
+        this.el.innerHTML = this.template;
+    }
+   
+}
+
+function createApp(app, el) {
+    return new CreateApp(app, el)
+}
+
+
+
+
+
 console.log("No bugs found, everything is good ");

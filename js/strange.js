@@ -676,39 +676,37 @@ String.prototype.reverse = function () {
 };
 
 class CreateApp {
-    constructor(app, el) {
-        this.app = app;
-        this.el = document.querySelector(el);
-        this.text = this.el.innerHTML;
-        this.template = '';
-   }
+  constructor(app, el) {
+    this.app = app;
+    this.el = document.querySelector(el);
+    this.text = this.el.innerHTML;
+    this.template = "";
+  }
 
-    makeTemplate() {
-        let app = this.app;
-        let text = this.text;
-        let b = text.replace(/\{\{[ ]{0,}([a-zA-Z0-9.()]{1,})[ ]{0,}\}\}/gi, function (...match) {
-            let m = match[1];
-            try {
-                return eval('app.' + m);
-            } catch (err) {
-                throw new Error(err)
-            }
-        })
-        this.template = b;
-    }
-    render() {
-        this.makeTemplate();
-        this.el.innerHTML = this.template;
-    }
-   
+  makeTemplate() {
+    let app = this.app;
+    let text = this.text;
+    let b = text.replace(
+      /\{\{[ ]{0,}([a-zA-Z0-9.()]{1,})[ ]{0,}\}\}/gi,
+      function (...match) {
+        let m = match[1];
+        try {
+          return eval("app." + m);
+        } catch (err) {
+          throw new Error(err);
+        }
+      }
+    );
+    this.template = b;
+  }
+  render() {
+    this.makeTemplate();
+    this.el.innerHTML = this.template;
+  }
 }
 
 function createApp(app, el) {
-    return new CreateApp(app, el)
+  return new CreateApp(app, el);
 }
-
-
-
-
 
 console.log("No bugs found, everything is good ");

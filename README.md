@@ -59,7 +59,6 @@ every(2)
 
 ## after
 
-<p>and after function is easier form of "setTimeout" and it looks like "every" function </p>
 
 ```js
 after(2).days(() => {

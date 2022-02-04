@@ -32,7 +32,6 @@ console.log($containers) // not $container
 
 ## every
 
-<p>we have every function that makes javascript "setInterval" easier. For example</p>
 
 
 ```js

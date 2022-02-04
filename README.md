@@ -39,13 +39,8 @@ every(5).seconds(funtion CallBack() {
 ```
 
 <code> every(number).time(callBack) </code>
-<ul>
-    <li>milliSeconds</li>
-    <li>seconds</li>
-    <li>minutes</li>
-    <li>hours</li>
-    <li>days</li>
-</ul>
+
+
 ```js
 every(2)
 .minutes(()=> {

@@ -32,8 +32,6 @@ console.log($containers) // not $container
 
 ## every
 
-
-
 ```js
 every(5).seconds(funtion CallBack() {
     console.log("It's been 5 seconds")
@@ -41,7 +39,6 @@ every(5).seconds(funtion CallBack() {
 ```
 
 <code> every(number).time(callBack) </code>
-<p> we have 5 methods for this </p>
 <ul>
     <li>milliSeconds</li>
     <li>seconds</li>

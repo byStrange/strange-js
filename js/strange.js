@@ -1,4 +1,4 @@
-// All rights reserved authors https://telegra.ph/07-05authors
+// All rights reserved authors https://telegra.ph/Authors-02-11-2
 // Strange.js no copyright ® 2022.01.27  registered
 // version 1.0
 if (window === undefined) {

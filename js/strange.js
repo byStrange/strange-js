@@ -716,7 +716,25 @@ String.prototype.mix = function mix(n) {
     })
 })()
 
-
+(function(_){
+	_.querySelectorAll('*').forEach( e => {
+	var a = e.attributes ? Object.values(e.attributes) : '';
+  if (a.length) {
+    a.forEach(s => {
+    	var _id = s.localName.startsWith('#')
+      	var _class = s.localName.startsWith('.')		
+      if (_id) {
+      	e.setAttribute('id', s.localName.slice(1, s.localName.length))
+        e.removeAttribute(s.localName)
+      } 
+      if (_class){
+      	e.setAttribute('class', s.localName.slice(1, s.localName.length))
+        e.removeAttribute(s.localName)
+      }
+    })
+  }
+})
+})(document)
 
 String.prototype.reverse = function () {
   return kns(this).split("").reverse().join("");

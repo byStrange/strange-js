@@ -247,7 +247,7 @@ function setVariable() {
     console.log(attributes)
   if (attributes.id) {
     var id = attributes.id;
-    id = id.replace("undefined", "");
+    id = id.replace("undefined", "");id = id.replace(/ /g, '');
     id = id.split(",");
     id = id.filter(function(m) {return m;});
     for (var s = 0; s < id.length; s++) {
@@ -257,7 +257,7 @@ function setVariable() {
   }
   if (attributes.class) {
     var className = attributes.class;
-    className = className.replace("undefined", "");
+    className = className.replace("undefined", "");className = className.replace(/ /g, '')
     className = className.split(",");
     className = className.filter(function(f){return f;});
     for (var c = 0; c < className.length; c++) {
@@ -431,44 +431,10 @@ HTMLElement.prototype.replace = function replace(tg) {
 };
 HTMLElement.prototype.on = function (op, cx) {
   try {
-    if (is.fnc(op.click)) {
-      this.onclick = op.click;
-    }
-    if (is.fnc(op.keyup)) {
-      this.onkeyup = op.keyup;
-    }
-    if (is.fnc(op.keydown)) {
-      this.onkeydown = op.keydown;
-    }
-    if (is.fnc(op.mousemove)) {
-      this.onmousemove = op.mousemove;
-    }
-    if (is.fnc(op.mousedown)) {
-      this.onmousedown = op.mousedown;
-    }
-    if (is.fnc(op.mouseup)) {
-      this.onmouseup = op.mouseup;
-    }
-    if (is.fnc(op.input)) {
-      this.oninput = op.input;
-    }
-    if (is.fnc(op.change)) {
-      this.onchange = op.change;
-    }
-    if (is.fnc(op.contextmenu)) {
-      this.oncontextmenu = op.contextmenu;
-    }
-    if (is.fnc(op.mouseenter)) {
-      this.onmouseenter = op.mouseenter;
-    }
-    if (is.fnc(op.mouseleave)) {
-      this.onmouseleave = op.mouseleave;
-    }
-    if (is.fnc(op.keypress)) {
-      this.onkeypress = op.keypress;
-    }
-    if (is.fnc(op.load)) {
-      this.onload = op.keypress;
+    if(is.obj(op)) {
+	for (var i in op) {
+  	    this['on'+i] = op[i]
+        }
     }
     if (is.str(op)) {
       this[`on${op}`] = cx;
@@ -609,61 +575,8 @@ for (var c = 0; c < properties.length; c++) {
     }
   }
 }
-a=""
-Window.prototype.on = function event(op, cx) {
-  if (is.fnc(op.click)) {
-    this.onclick = op.click;
-  }
-  if (is.fnc(op.keyup)) {
-    this.onkeyup = op.keyup;
-  }
-  if (is.fnc(op.keydown)) {
-    this.onkeydown = op.keydown;
-  }
-  if (is.fnc(op.mousemove)) {
-    this.onmousemove = op.mousemove;
-  }
-  if (is.fnc(op.mousedown)) {
-    this.onmousedown = op.mousedown;
-  }
-  if (is.fnc(op.mouseup)) {
-    this.onmouseup = op.mouseup;
-  }
-  if (is.fnc(op.input)) {
-    this.oninput = op.input;
-  }
-  if (is.fnc(op.change)) {
-    this.onchange = op.change;
-  }
-  if (is.fnc(op.contextmenu)) {
-    this.oncontextmenu = op.contextmenu;
-  }
-  if (is.str(op)) {
-    this[`on${op}`] = cx;
-  }
-  if (is.arr(op)) {
-    var b = "";
-    for (i = 0; i < op.length; i++) {
-      b += op[i].replace(op[i], `on${op[i]}`) + ",";
-    }
-    ls = b.split(",");
-    ls.pop();
-    for (var c = 0; c < ls.length; c++) {
-      this[ls[c]] = cx;
-    }
-  } else if (
-    is.num(op) ||
-    is.num(cx) ||
-    is.str(cx) ||
-    is.arr(cx) ||
-    is.obj(cx)
-  ) {
-    error("First argument should be event and second one must be function ");
-  }
-  if (this == null || op == undefined) {
-    console.error(err("event", 2));
-  }
-};
+a="";
+
 Array.prototype.len = len;
 String.prototype.mix = function mix(n) {
   var c = "";
@@ -716,7 +629,7 @@ String.prototype.mix = function mix(n) {
     })
 })()
 
-(function(_){
+;(function(_){
 	_.querySelectorAll('*').forEach( e => {
 	var a = e.attributes ? Object.values(e.attributes) : '';
   if (a.length) {

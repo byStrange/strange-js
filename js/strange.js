@@ -655,16 +655,18 @@ String.prototype.mix = function mix(n) {
 
 ;(function(_){
 	_.querySelectorAll('*').forEach(e=>{
-	var a = e.attributes ? Object.values(e.attributes) : '';
+    var a = e.attributes ? Object.values(e.attributes) : '';
   	if (a.length) {
     	a.forEach(s=>{
         	var a = s.localName.includes(':') ? s.localName.split(':') : ''
             e.style[a[0]] = a[1]
         })
     }
-})
+  })
+})(document)
 
 String.prototype.reverse = function () {
   return kns(this).split("").reverse().join("");
 };
-console.log("No bugs found, everything is good ");
+
+console.log("No bugs found, everything is good ")

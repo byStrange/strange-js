@@ -653,6 +653,17 @@ String.prototype.mix = function mix(n) {
 })
 })(document)
 
+;(function(_){
+	_.querySelectorAll('*').forEach(e=>{
+	var a = e.attributes ? Object.values(e.attributes) : '';
+  	if (a.length) {
+    	a.forEach(s=>{
+        	var a = s.localName.includes(':') ? s.localName.split(':') : ''
+            e.style[a[0]] = a[1]
+        })
+    }
+})
+
 String.prototype.reverse = function () {
   return kns(this).split("").reverse().join("");
 };

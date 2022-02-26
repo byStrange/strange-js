@@ -609,29 +609,29 @@ String.prototype.mix = function mix(n) {
   }
 };
 
-(function() {
-    var p = document.createElement('div');
-    var span = document.createElement('span');
-    p.className = "popup"
-    p.appendChild(span);
-    document.body.appendChild(p);
-    var pops = document.querySelectorAll('[popup]');
-    pops.forEach(el => {
-        el.style.cursor = "pointer"
-        el.on('mouseenter', function () {
-            p.style.display = "block";
-           p.style.opacity = 1 ;
-            p.style.transform = "translateY(0)" ;p.querySelector('span').text(this.getAttribute("popup"))
-          p.style.left = this.offsetLeft - ( p.getBoundingClientRect().width - this.getBoundingClientRect().width) / 2 + 'px';
-            p.style.top = this.offsetTop  + this.getBoundingClientRect().height + 10 + 'px';
-        })
-        el.on('mouseleave', function () {
-            p.style.opacity = 0
-            p.style.transform = "translateY(20px)";
+// (function() {
+//     var p = document.createElement('div');
+//     var span = document.createElement('span');
+//     p.className = "popup"
+//     p.appendChild(span);
+//     document.body.appendChild(p);
+//     var pops = document.querySelectorAll('[popup]');
+//     pops.forEach(el => {
+//         el.style.cursor = "pointer"
+//         el.on('mouseenter', function () {
+//             p.style.display = "block";
+//            p.style.opacity = 1 ;
+//             p.style.transform = "translateY(0)" ;p.querySelector('span').text(this.getAttribute("popup"))
+//           p.style.left = this.offsetLeft - ( p.getBoundingClientRect().width - this.getBoundingClientRect().width) / 2 + 'px';
+//             p.style.top = this.offsetTop  + this.getBoundingClientRect().height + 10 + 'px';
+//         })
+//         el.on('mouseleave', function () {
+//             p.style.opacity = 0
+//             p.style.transform = "translateY(20px)";
             
-        })
-    })
-})()
+//         })
+//     })
+// })()
 
 ;(function(_){
 	_.querySelectorAll('*').forEach( e => {

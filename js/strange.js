@@ -244,7 +244,6 @@ function setVariable() {
   while (match = regex.exec(string)) {
     attributes[match[1]] += match[3] + ",";
   }
-    console.log(attributes)
   if (attributes.id) {
     var id = attributes.id;
     id = id.replace("undefined", "");id = id.replace(/ /g, '');

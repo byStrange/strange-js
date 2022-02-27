@@ -650,6 +650,7 @@ String.prototype.mix = function mix(n) {
     })
   }
 })
+	setVariable()
 })(document)
 
 ;(function(_){

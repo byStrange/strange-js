@@ -665,6 +665,105 @@ String.prototype.mix = function mix(n) {
   })
 })(document)
 
+;(function(){
+    document.querySelectorAll('*').forEach(_ => {
+    const style = document.querySelector('style[scoped]') ? document.querySelector('style[scoped]') : document.createElement('style');
+    style.setAttribute('scoped', '');
+    document.head.appendChild(style)
+    var attr = [..._.attributes]
+    if (attr.length) {
+        var n = "_-scope-_";
+        var k = randomId(10);
+        var sl = `[${n}='${k}']`;
+        var stl = {
+            sm: {
+                media: "screen and (max-width: 767px)",
+                ls: []
+            },
+            md: {
+                media: "screen and (max-width: 991px)",
+                ls: []
+            },
+            lg: {
+                media: "screen and (max-width: 1124px)",
+                ls:[]
+            },
+            xlg: {
+                media: "screen and (max-width: 1400px)",
+                ls: []
+            }
+        }
+        var mediaKey;
+        attr.forEach(__ => {
+            if(testing(__.localName)){
+                __.ownerElement.setAttribute(n, k)
+            }
+            if(__.localName.startsWith('sm')) {
+                const s = __.localName.split(':');
+                if ( s.length == 3 ) {
+                    stl.sm.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
+                    stl.sm.ls.push('')
+                }
+            }
+            else if (__.localName.startsWith('md')) {
+                const s = __.localName.split(':');
+                if ( s.length == 3 ) {
+                    stl.md.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
+                    stl.md.ls.push('')
+                }
+            } else if (__.localName.startsWith('lg')) {
+                const s = __.localName.split(':');
+                if ( s.length == 3 ) {
+                    stl.lg.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
+                    stl.lg.ls.push('')
+                }
+            } else if (__.localName.startsWith('xlg')) {
+                const s = __.localName.split(':');
+                if ( s.length == 3 ) {
+                    stl.xlg.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
+                    stl.xlg.ls.push('')
+                }
+            }
+        })
+        for (let each in stl) {
+            var mediaKey = stl[each].media;
+            var cssText = makeFor(sl, stl[each].ls);
+            var _INSTANCE = cssText ?  `@media ${mediaKey} { ${cssText} }` : ''
+            style.innerHTML += _INSTANCE + "\n";
+        }
+        attr.forEach(attr => testing(attr.localName) ? (attr.ownerElement.removeAttribute(attr.localName)) : "")
+    }
+})
+    function randomId(len) {    
+        var chars = "QWERTYUIOPASDFGHJKLZXCVBNM_-qwertyuiopasdfghjklzxcvbnm";
+        var password = "";
+        for (let i = 0; i < len; i++) {
+            var randomIndex = Math.floor(Math.random() * chars.length);
+            password += chars[randomIndex];
+        }
+        return password;
+    }
+    
+    function makeFor(selector, list) {
+        if (!list.length) {
+            return ''
+        } else {
+            let main = [];
+            main.push(selector + ' {')
+            list.forEach((_, $_, _$)=>{
+            var last = _$.length - 1;
+            if ($_ == last) {
+                main.push('} ')
+            } else main.push(_ ? _ + '; ' : '')
+        })
+            return main.join('');
+        }
+    }
+    function testing(ex) {
+        return ex.startsWith('sm') || ex.startsWith('md') || ex.startsWith('lg') || ex.startsWith('xlg') ? true : false
+    }
+})()
+
 String.prototype.reverse = function () {
   return kns(this).split("").reverse().join("");
 };

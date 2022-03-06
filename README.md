@@ -78,22 +78,28 @@ every().minutes(callBack)  // this occurs error also
  
 ```
 
-
-<h3>You can also use cdn <a href="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js">link</a></h3>
+### You can also use cdn [link](https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js)
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.js"></script>
 ```
 
-<h3>or minimized</h3>
+### or minimized
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Strange-bs/strange-js/js/strange.min.js"></script>
 ```
 
+
 # core-js
 now we have a [core-js](https://github.com/strange-bs/strange-js/js/core.js) file that minimized version of [strange-js](https://github.com/strange-bs/strange-js/js/strange.js)
 here is the some documentation
+
+# [CDN](https://cdn.jsdelivr.net/gh/strange-bs/strange-js/js/core.js) for core-js
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/strange-bs/strange-js/js/core.js"></script>
+```
 
 # docs for core-js
 ## styling with attributes

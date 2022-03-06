@@ -114,7 +114,7 @@ it will be very useful when you wanted to style your element with one property. 
 `! NOTE:` the style property names shoud be [camel case](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiOmOr20LH2AhUJyosKHXwxC7EQFnoECAcQAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCamel_case&usg=AOvVaw3rpk9xbQSt-mdoJTG9ynM5) as javascript used or it doesn't work
 
 ## Javascript evaluvating
-And also you can use javascript exection in attribute values
+And also you can use javascript execution in attribute values
 here is a simple div element
 
 ```html
@@ -126,7 +126,7 @@ here is a simple div element
 ```
 Yes the output would be as you think :)
 
-`! NOTE:`  if your exection that given in attributes is rises error then it understands you only entered string as we saw [first](https://gihub.com/strange-bs/strange-js#styling-with-attributes)
+`! NOTE:`  if your execution that given in attributes is rises error then it understands you only entered string as we saw [first](https://gihub.com/strange-bs/strange-js#styling-with-attributes)
 
 ## Media with attributes
 

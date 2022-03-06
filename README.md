@@ -210,4 +210,4 @@ Anyways I hope you like this and you use this 🙂
 
 
 Made with 🖤 and [me](https://github.com/strange-bs/)\
-And special thanks for my teacher @rashidov21
+And special thanks for my teacher [@rashidov21](https://github.com/rashidov21)

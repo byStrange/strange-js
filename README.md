@@ -208,5 +208,5 @@ Anyways I hope you like this and you use this 🙂
 
 > First Release 2021.08.07 🔥 
 
-<span style="font-size: 2em;text-shadow: 2px 2px 20px">Made with 🖤 and [me](https://github.com/strange-bs/)
-</span>
+<span style="font-size: 2em;text-shadow: 2px 2px 20px">Made with 🖤 and [me](https://github.com/strange-bs/)</span>
+And special thanks for my teacher [@rashidov21](https://github.com/rashidov21)

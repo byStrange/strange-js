@@ -199,7 +199,7 @@ Here is simple example with all of those
         app.random = `rgba(${Math.random() * 250}, ${Math.random() * 250}, ${Math.random() * 250}, 1)`
         app.render()
     }
-    </script>
+</script>
 ```
 It is my first library on `javascript` 😭.
 It is clear that there are lots of mistakes.

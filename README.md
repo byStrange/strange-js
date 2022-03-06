@@ -284,8 +284,8 @@ Here is simple example with all of those
     </script>
 ```
 It is my first library on `javascript` 😭.
-It is clear that there are lots of mistakes 
-anyways I hope you like this and you use this 🙂
+It is clear that there are lots of mistakes.
+Anyways I hope you like this and you use this 🙂
 
 
 > First Release 2021.08.07 🔥 

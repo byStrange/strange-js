@@ -60,7 +60,7 @@ clearTimeout(t1) // before running t1 was stopped
 
 
 ### Note:
-<p>If you don't give any number to "every" or "after" functions they think you entered 1 then there would be some changes. For example</p>
+<p>If you don't give any number to "every" or "after" functions it thinks you entered 1 then there would be some changes. For example</p>
 
 ```js
 every().minute(()=> {

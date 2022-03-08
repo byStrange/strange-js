@@ -62,7 +62,7 @@ After hard working I added amazing media tool with attributes. Talk is cheap let
 </div>
 ```
 when window is small size it takes those styles by default we have media sizes
-
+### Media sizes
 - **sm**
     -  max-width: 767px
 - **md**
@@ -145,7 +145,7 @@ After this we create an elemen in html
     {{ isLower == false }}
 </div>
 
-    <!-- but not here we can't use that feature because we only mounted for our app element -->
+    <!-- but not here we can't use that feature because we only mounted for our #app element -->
 ```
 If you make changes after rendering for your `app` object then you should call render method again
 
@@ -200,7 +200,19 @@ Here is simple example with all of those
         app.render()
     }
 </script>
+
 ```
+
+# class-names
+Now you can use responsive class names and control where to use class names
+for example 
+```html
+	<div :sm:small :md:big class="container"></div>
+```
+`:mediaKey:className`
+as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power
+Those media sizes shown [above](https://github.com/strange-bs/strange-js#media-sizes)  
+
 It is my first library on `javascript` 😭.
 It is clear that there are lots of mistakes.
 Anyways I hope you like this and you use this 🙂

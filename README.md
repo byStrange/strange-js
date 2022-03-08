@@ -45,7 +45,7 @@ here is a simple div element
 ```
 Yes the output would be as you think :)
 
-`! NOTE:`  if your execution that given in attributes is rises error then it understands you only entered string as we saw [first](https://gihub.com/strange-bs/strange-js#styling-with-attributes)
+`! NOTE:`  if your execution that given in attributes rises error then it understands you only entered string as we saw [first](https://gihub.com/strange-bs/strange-js#styling-with-attributes)
 
 ## Media with attributes
 

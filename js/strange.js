@@ -665,148 +665,171 @@ setVariable()
 })(document)
 
 ;(function () {
-        var all = []
-        const style = document.querySelector('style[scoped]') ? document.querySelector('style[scoped]') : document.createElement('style');
-        style.setAttribute('scoped', '');
-        document.head.appendChild(style)
-        document.querySelectorAll('*').forEach(_ => {
-            var attr = [..._.attributes]
-            if (attr.length) {
-                var stl = {
-                    queries: {
-                        sm: {
-                            ls: [],
-                        },
-                        md: {
-                            ls: [],
-                        },
-                        lg: {
-                            ls: [],
-                        },
-                        xlg: {
-                            ls: [],
-                        },
-                        xsm: {
-                            ls: []
-                        }
-                    }
-                }
-                var n = "_-scope-_";
-                var k = randomId(10);
-                var sl = `[${n}='${k}']`;
-                var mediaKey;
-                attr.forEach(__ => {
-                    if (testing(__.localName)) {
-                        __.ownerElement.setAttribute(n, k);
-                        stl.selector = sl;
-                    }
-                    if (__.localName.startsWith('sm')) {
-                        const s = __.localName.split(':');
-                        if (s.length == 3) {
-                            stl.queries.sm.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
-                            stl.queries.sm.ls.push('')
-                        }
-                    }
-                    else if (__.localName.startsWith('md')) {
-                        const s = __.localName.split(':');
-                        if (s.length == 3) {
-                            stl.queries.md.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
-                            stl.queries.md.ls.push('')
-                        }
-                    } else if (__.localName.startsWith('lg')) {
-                        const s = __.localName.split(':');
-                        if (s.length == 3) {
-                            stl.queries.lg.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
-                            stl.queries.lg.ls.push('')
-                        }
-                    } else if (__.localName.startsWith('xlg')) {
-                        const s = __.localName.split(':');
-                        if (s.length == 3) {
-                            stl.queries.xlg.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
-                            stl.queries.xlg.ls.push('')
-                        }
-                    } else if (__.localName.startsWith('xsm')) {
-                        const s = __.localName.split(':');
-                        if (s.length == 3) {
-                            stl.queries.xsm.ls.push(`${s[1]}: ${s[2].replace('!', ' !important')}`)
-                            stl.queries.xsm.ls.push('')
-                        }
-                    }
-                })
-                all.push(stl);
-                attr.forEach(attr => testing(attr.localName) ? (attr.ownerElement.removeAttribute(attr.localName)) : "")
-            }
-        })
-        function randomId(len) {
-            var chars = "QWERTYUIOPASDFGHJKLZXCVBNM_-qwertyuiopasdfghjklzxcvbnm";
-            var password = "";
-            for (let i = 0; i < len; i++) {
-                var randomIndex = Math.floor(Math.random() * chars.length);
-                password += chars[randomIndex];
-            }
-            return password;
+  document.querySelectorAll("*").forEach((_) => {
+    const style = document.querySelector("style[scoped]")
+      ? document.querySelector("style[scoped]")
+      : document.createElement("style");
+    style.setAttribute("scoped", "");
+    document.head.appendChild(style);
+    var attr = [..._.attributes];
+    if (attr.length) {
+      var n = "_-scope-_";
+      var k = randomId(10);
+      var sl = `[${n}='${k}']`;
+      var stl = {
+        sm: {
+          media: "screen and (max-width: 767px)",
+          ls: [],
+        },
+        md: {
+          media: "screen and (max-width: 991px)",
+          ls: [],
+        },
+        lg: {
+          media: "screen and (max-width: 1124px)",
+          ls: [],
+        },
+        xlg: {
+          media: "screen and (max-width: 1400px)",
+          ls: [],
+        },
+      };
+      var mediaKey;
+      attr.forEach((__) => {
+        if (testing(__.localName)) {
+          __.ownerElement.setAttribute(n, k);
         }
+        if (__.localName.startsWith("sm")) {
+          const s = __.localName.split(":");
+          if (s.length == 3) {
+            stl.sm.ls.push(`${s[1]}: ${s[2].replace("!", " !important")}`);
+            stl.sm.ls.push("");
+          }
+        } else if (__.localName.startsWith("md")) {
+          const s = __.localName.split(":");
+          if (s.length == 3) {
+            stl.md.ls.push(`${s[1]}: ${s[2].replace("!", " !important")}`);
+            stl.md.ls.push("");
+          }
+        } else if (__.localName.startsWith("lg")) {
+          const s = __.localName.split(":");
+          if (s.length == 3) {
+            stl.lg.ls.push(`${s[1]}: ${s[2].replace("!", " !important")}`);
+            stl.lg.ls.push("");
+          }
+        } else if (__.localName.startsWith("xlg")) {
+          const s = __.localName.split(":");
+          if (s.length == 3) {
+            stl.xlg.ls.push(`${s[1]}: ${s[2].replace("!", " !important")}`);
+            stl.xlg.ls.push("");
+          }
+        }
+      });
+      for (let each in stl) {
+        var mediaKey = stl[each].media;
+        var cssText = makeFor(sl, stl[each].ls);
+        var _INSTANCE = cssText ? `@media ${mediaKey} { ${cssText} }` : "";
+        style.innerHTML += _INSTANCE + "\n";
+      }
+      attr.forEach((attr) =>
+        testing(attr.localName)
+          ? attr.ownerElement.removeAttribute(attr.localName)
+          : ""
+      );
+    }
+  });
+  function randomId(len) {
+    var chars = "QWERTYUIOPASDFGHJKLZXCVBNM_-qwertyuiopasdfghjklzxcvbnm";
+    var password = "";
+    for (let i = 0; i < len; i++) {
+      var randomIndex = Math.floor(Math.random() * chars.length);
+      password += chars[randomIndex];
+    }
+    return password;
+  }
 
-        function makeFor(selector, list) {
-            if (!list.length) {
-                return ''
-            } else {
-                let main = [];
-                main.push(selector + ' {')
-                list.forEach((_, $_, _$) => {
-                    var last = _$.length - 1;
-                    if ($_ == last) {
-                        main.push('} ')
-                    } else main.push(_ ? _ + '; ' : '')
-                })
-                return main.join('');
+  function makeFor(selector, list) {
+    if (!list.length) {
+      return "";
+    } else {
+      let main = [];
+      main.push(selector + " {");
+      list.forEach((_, $_, _$) => {
+        var last = _$.length - 1;
+        if ($_ == last) {
+          main.push("} ");
+        } else main.push(_ ? _ + "; " : "");
+      });
+      return main.join("");
+    }
+  }
+  function testing(ex) {
+    return ex.startsWith("sm") ||
+      ex.startsWith("md") ||
+      ex.startsWith("lg") ||
+      ex.startsWith("xlg")
+      ? true
+      : false;
+  }
+})();
+;(function () {
+  var some;
+  function init() {
+    const queries = {
+      xlg: "(max-width: 2000px) and (min-width: 1700px)",
+      lg: "(max-width: 1699px) and (min-width: 1200px)",
+      xmd: "(max-width: 1199px) and (min-width: 992px)",
+      md: "(max-width: 991px) and (min-width: 768px)",
+      xsm: "(max-width: 767px) and (min-width: 550px)",
+      sm: "(max-width: 549px)",
+    };
+    some = function () {
+      document.querySelectorAll("*").forEach((el) => {
+        var attrs = [...el.attributes];
+        if (attrs.length) {
+          attrs.forEach((_attr) => {
+            var a = _attr.localName.split(":");
+            if (a.length == 3) {
+              a = a.filter((_) => _);
+              if (a[0] == "sm") {
+                _(queries.sm)
+                  ? el.classList.add(a[1])
+                  : el.classList.remove(a[1]);
+              } else if (a[0] == "xsm") {
+                _(queries.xsm)
+                  ? el.classList.add(a[1])
+                  : el.classList.remove(a[1]);
+                console.log(0xfffff);
+              } else if (a[0] == "md") {
+                _(queries.md)
+                  ? el.classList.add(a[1])
+                  : el.classList.remove(a[1]);
+              } else if (a[0] == "xmd") {
+                _(queries.xmd)
+                  ? el.classList.add(a[1])
+                  : el.classList.remove(a[1]);
+              } else if (a[0] == "xlg") {
+                _(queries.lg)
+                  ? el.classList.add(a[1])
+                  : el.classList.remove(a[1]);
+              } else if (a[0] == "xlg") {
+                _(queries.xlg)
+                  ? el.classList.add(a[1])
+                  : el.classList.remove(a[1]);
+              }
             }
+          });
         }
-        function testing(ex) {
-            return ex.startsWith('sm') || ex.startsWith('md') || ex.startsWith('lg') || ex.startsWith('xlg') || ex.startsWith('xsm') ? true : false
-        }
-
-        var styl = {
-            sm: {
-                d: '',
-                media: "screen and (max-width: 767px)",
-            },
-            md: {
-                d: '',
-                media: "screen and (max-width: 991px)",
-            },
-            lg: {
-                d: '',
-                media: "screen and (max-width: 1124px)",
-            },
-            xlg: {
-                d: '',
-                media: "screen and (max-width: 1400px)",
-            },
-            xsm: {
-                d: '',
-                media: 'screen and (max-width: 450px)'
-            }
-        }
-        for (let each in all) {
-            var current = all[each];
-            var el = current.selector;
-            var queries = current.queries;
-
-            for (let i in queries) {
-                var a = makeFor(current.selector, queries[i].ls);
-                styl[i].d += a
-            }
-
-        }
-        for (let e in styl) {
-            var css = styl[e].d
-            var media = styl[e].media
-            var _INSTANCE = css ? `@media ${media} { ${css} }\n` : ''
-            style.innerHTML += _INSTANCE
-        }
-
-    })()
+      });
+    };
+    some();
+  }
+  init();
+  window.onresize = (e) => some();
+  function _(n) {
+    return window.matchMedia(n).matches;
+  }
+})();
 String.prototype.reverse = function () {
   return kns(this).split("").reverse().join("");
 };

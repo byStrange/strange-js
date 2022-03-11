@@ -81,7 +81,6 @@ a = "";
       });
     }
   });
-  setVariable();
 })(document);
 (function (_) {
   _.querySelectorAll("*").forEach((e) => {

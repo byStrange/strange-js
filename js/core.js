@@ -14,7 +14,7 @@ class CreateApp {
       function (...match) {
         var m = match[1];
         try {
-          return eval("app." + m);
+          return eval(`with (app) { ${m} }`);
         } catch (err) {
           throw new Error(err);
         }

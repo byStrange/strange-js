@@ -197,7 +197,7 @@ Here is simple example with all of those
 
     window.click = e => {
         app.random = `rgba(${Math.random() * 250}, ${Math.random() * 250}, ${Math.random() * 250}, 1)`
-        app.render()
+        m.render()
     }
 </script>
 

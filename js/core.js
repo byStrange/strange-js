@@ -10,14 +10,10 @@ class CreateApp {
     var app = this.app;
     var text = this.text;
     var b = text.replace(
-      /\{\{[ ]{0,}([a-zA-Z0-9.()]{1,})[ ]{0,}\}\}/gi,
+      /\{\{[ ]{0,}(.*(){1,})[ ]{0,}\}\}/gi,
       function (...match) {
         var m = match[1];
-        try {
-          return eval(`with (app) { ${m} }`);
-        } catch (err) {
-          throw new Error(err);
-        }
+        return eval('app.' + m);
       }
     );
     this.template = b;

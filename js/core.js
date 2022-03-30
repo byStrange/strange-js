@@ -58,7 +58,7 @@ HTMLElement.prototype.css = function css(s, v = 0) {
       }
     }
   }
-})()
+})();
 
 (function (_) {
   _.querySelectorAll("*").forEach((e) => {

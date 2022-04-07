@@ -72,8 +72,9 @@ HTMLElement.prototype.css = function css(s, v = 0) {
           e.removeAttribute(s.localName);
         }
         if (_class) {
-          e.setAttribute("class", s.localName.slice(1, s.localName.length));
-          e.removeAttribute(s.localName);
+          var _ = s.localName.replace(/[.]/g, ' ');
+            e.setAttribute("class", _.slice(1, s.localName.length));
+            e.removeAttribute(s.localName);
         }
       });
     }

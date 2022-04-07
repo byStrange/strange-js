@@ -5,13 +5,13 @@ Hello everyone I'm Rahmatullo from Uzbekistan I love javascript so I made javasc
 
 
 # core-js
-now we have a [core-js](https://github.com/strange-bs/strange-js/js/core.js) file that minimized version of [strange-js](https://github.com/strange-bs/strange-js/js/strange.js)
+now we have a [core-js](https://github.com/byStrange/strange-js/js/core.js) file that minimized version of [strange-js](https://github.com/byStrange/strange-js/js/strange.js)
 here is the some documentation
 
-# [CDN](https://cdn.jsdelivr.net/gh/strange-bs/strange-js/js/core.js) for core-js
+# [CDN](https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js) for core-js
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/strange-bs/strange-js/js/core.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js"></script>
 ```
 
 # docs for core-js
@@ -45,7 +45,7 @@ here is a simple div element
 ```
 Yes the output would be as you think :)
 
-`! NOTE:`  if your execution that given in attributes rises error then it understands you only entered string as we saw [first](https://gihub.com/strange-bs/strange-js#styling-with-attributes)
+`! NOTE:`  if your execution that given in attributes rises error then it understands you only entered string as we saw [first](https://gihub.com/byStrange/strange-js#styling-with-attributes)
 
 ## Media with attributes
 
@@ -210,7 +210,7 @@ for example
 	<div :sm:small :md:big class="container"></div>
 ```
 `:mediaKey:className`
-as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes shown [above](https://github.com/strange-bs/strange-js#media-sizes)  
+as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes shown [above](https://github.com/byStrange/strange-js#media-sizes)  
 
 It is my first library on `javascript` 😭.
 It is clear that there are lots of mistakes.
@@ -220,5 +220,5 @@ Anyways I hope you like this and you use this 🙂
 > First Release 2021.08.07 🔥 
 
 
-Made with 🖤 and [me](https://github.com/strange-bs/)\
+Made with 🖤 and [me](https://github.com/byStrange/)\
 And special thanks for my teacher [@rashidov21](https://github.com/rashidov21)

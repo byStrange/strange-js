@@ -30,7 +30,7 @@ With this you can easily control your element's styles with it's attributes. Now
 ```
 it will be very useful when you wanted to style your element with one property. You don't have to create a class and style in css.
 
-`! NOTE:` the style property names shoud be [camel case](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiOmOr20LH2AhUJyosKHXwxC7EQFnoECAcQAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCamel_case&usg=AOvVaw3rpk9xbQSt-mdoJTG9ynM5) as javascript used or it doesn't work
+`NOTE !:` the style property names shoud be [camel case](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiOmOr20LH2AhUJyosKHXwxC7EQFnoECAcQAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCamel_case&usg=AOvVaw3rpk9xbQSt-mdoJTG9ynM5) as javascript used or it doesn't work
 
 ## Javascript evaluvating
 And also you can use javascript execution in attribute values
@@ -45,7 +45,7 @@ here is a simple div element
 ```
 Yes the output would be as you think :)
 
-`! NOTE:`  if your execution that given in attributes rises error then it understands you only entered string as we saw [first](https://gihub.com/byStrange/strange-js#styling-with-attributes)
+`NOTE !:`  if your execution that given in attributes rises error then it understands you only entered string as we saw [first](https://gihub.com/byStrange/strange-js#styling-with-attributes)
 
 ## Media with attributes
 
@@ -74,7 +74,7 @@ when window is small size it takes those styles by default we have media sizes
 
 It's not added that controlling those media sizes but I'm working on it 
 
-`! NOTE: ` Here you should use kebab-case like css used not camelCase
+`NOTE !: ` Here you should use kebab-case like css used not camelCase
 
 You can use as much as you wanted of media styles in one element
 ```html
@@ -114,7 +114,7 @@ It's pretty easy now. And also id attribute can be used like this `#idName`
 <!-- but we can not use double ids as you know -->
 ```
 
-`! NOTE: ` Don't use any spaces for all of these attributes because if you use space it will be other attribute
+`NOTE !: ` Don't use any spaces for all of these attributes because if you use space it will be other attribute
 
 
 ## Js in HTML

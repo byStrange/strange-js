@@ -223,4 +223,4 @@ Anyways I hope you like this and you use this 🙂
 Made with 🖤 and [me](https://github.com/byStrange/)\
 And special thanks for my teacher [@rashidov21](https://github.com/rashidov21)
 
-If you have any ideas or contacts you can tell me anytime via email [here](qosimovrahmatullo006@gmail.com). 
+If you have any ideas or contacts you can tell me anytime via email [here](mailto:qosimovrahmatullo006@gmail.com). 

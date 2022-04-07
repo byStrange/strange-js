@@ -207,7 +207,7 @@ Here is simple example with all of those
 Now you can use responsive class names and control where to use class names.
 for example 
 ```html
-	<div :sm:small :md:big class="container"></div>
+	<div :sm:small :md:big .container></div>
 ```
 `:mediaKey:className`
 as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes shown [above](https://github.com/byStrange/strange-js#media-sizes)  

@@ -204,7 +204,7 @@ Here is simple example with all of those
 ```
 
 # class-names
-Now you can use responsive class names and control where to use class names
+Now you can use responsive class names and control where to use class names.
 for example 
 ```html
 	<div :sm:small :md:big class="container"></div>

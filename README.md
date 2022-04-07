@@ -210,7 +210,7 @@ for example
 	<div :sm:small :md:big .container></div>
 ```
 `:mediaKey:className`
-as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes shown [above](https://github.com/byStrange/strange-js#media-sizes)  
+as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes were shown [above](https://github.com/byStrange/strange-js#media-sizes)  
 
 It is my first library on `javascript` 😭.
 It is clear that there are lots of mistakes.

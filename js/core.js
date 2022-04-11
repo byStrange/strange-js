@@ -9,21 +9,53 @@ class CreateApp {
  #makeTemplate() {
     var app = this.app;
     var text = this.text;
-    var b = text.replace(
-      /\{\{[ ]{0,}(.*(){1,})[ ]{0,}\}\}/gi,
-      function (...match) {
-        var m = match[1];
-        return eval('app.' + m);
-      }
-    );
-    this.template = b;
+    var self = this;
+    var cFor = self.el.querySelectorAll('[c-for]');
+    var others = self.el.querySelectorAll('*:not([c-for])')
+    if (cFor) {
+      cFor.forEach(e => {
+        cFor = CreateApp.executeJs(e.getAttribute('c-for'))
+        var text = e.innerHTML;
+        let w =[]
+        eval(
+          `${cFor} {
+            var d = text.replace(/\{\{[ ]{0,}(.*(){1,})[ ]{0,}\}\}/g, function(...s){
+              return ( eval(s[1]) )
+            })
+            w.push(d)
+          }`
+        )
+        e.innerHTML = w.join('\n');
+      });
+
+    } if (others) {
+      others.forEach(e => {
+        var text = e.innerHTML;
+        var w = [];
+        var b = text.replace(
+          /\{\{[ ]{0,}(.*(){1,})[ ]{0,}\}\}/gi,
+          function (...match) {
+            var m = match[1];
+            return eval('app.' + m);
+          });
+        w.push(b);
+        e.innerHTML = w.join('\n')
+      })
+    }
+
   }
+
+  static executeJs(str) {
+    var _ = str.split(' ');
+    return (`for (var ${_[1]} ${_[2].toUpperCase() == "IN" ? 'of' : 'in'} ${_[3]})`)
+  }
+
   render() {
     this.#makeTemplate();
-    this.el.innerHTML = this.template;
+    // this.el.innerHTML = this.template;
   }
 }
-
+CreateApp.executeJs('for i in app')
 function createApp(app, el) {
   return new CreateApp(app, el);
 }
@@ -80,6 +112,32 @@ HTMLElement.prototype.css = function css(s, v = 0) {
     }
   });
 })(document);
+
+(function (_) {
+  _.querySelectorAll('*').forEach(e => {
+    var list = e.attributes ? Object.values(e.attributes) : "";
+    if (list) {
+      list.forEach(attr => {
+        var attrName = attr.localName.split(':');
+        if (attrName.length == 2) {
+          var _ = attrName[0];
+          var __ = attrName[1].replace(/_/g, ' ');
+          e.style[_] = __
+          e.removeAttribute(attrName.join(':'))
+        }
+      });
+
+    }
+  })
+})(document);
+
+(function(_) {
+  document.querySelectorAll('[c-for]').forEach($ => {
+
+  });
+
+});
+
 (function (_) {
   _.querySelectorAll("*").forEach((e) => {
     var a = e.attributes ? Object.values(e.attributes) : "";

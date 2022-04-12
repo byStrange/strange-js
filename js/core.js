@@ -10,15 +10,15 @@ class CreateApp {
     var app = this.app;
     var text = this.text;
     var self = this;
-    var cFor = self.el.querySelectorAll('[c-for]');
-    var others = self.el.querySelectorAll('*:not([c-for])')
-    if (cFor) {
-      cFor.forEach(e => {
-        cFor = CreateApp.executeJs(e.getAttribute('c-for'))
+    var sFor = self.el.querySelectorAll('[s-for]');
+    var others = self.el.querySelectorAll('*:not([s-for])')
+    if (sFor) {
+      sFor.forEach(e => {
+        sFor = CreateApp.executeJs(e.getAttribute('s-for'))
         var text = e.innerHTML;
         let w =[]
         eval(
-          `${cFor} {
+          `${sFor} {
             var d = text.replace(/\{\{[ ]{0,}(.*(){1,})[ ]{0,}\}\}/g, function(...s){
               return ( eval(s[1]) )
             })

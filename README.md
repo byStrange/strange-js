@@ -9,10 +9,14 @@ now we have a [core-js](https://github.com/byStrange/strange-js/js/core.js) file
 here is the some documentation
 
 # [CDN](https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js) for core-js
+```html
+<script src="https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js"></script>
+```
+
 Use `CDN` link to test version. Preferred version is via [npm package](https://www.npmjs.com/package/@strange-js/strange-js). You can simply install.
 
 ```bash
-npm install npm i @strange-js/strange-js -g
+npm i @strange-js/strange-js -g
 ```
 
 and go to the folder that contains your html file. Usage: -o &lt;path&gt; fileName
@@ -23,10 +27,6 @@ strange-js -o index.html
 ```
 
 this command compiles your `index.html` itself
-
-```html
-<script src="https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js"></script>
-```
 
 # docs for core-js
 ## styling with attributes

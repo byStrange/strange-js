@@ -114,6 +114,12 @@ Now you needn't class attribute anymore you can use `.className` syntax for exam
 <!-- it equals -->
 <div class="container"></div>
 
+<div .btn.sm></div>
+<!-- more then one class -->
+<div class="btn sm"></div>
+
+<!-- there is no "more then one ids" -->
+
 <div .container.second></div>
 <!-- it equals -->
 <div class="container second"></div>

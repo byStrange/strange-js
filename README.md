@@ -26,7 +26,7 @@ cd your-project
 strange-js -o index.html
 ```
 
-this command compiles your `index.html` itself
+this command compiles your `index.html` itself. Here you can see how `strange-js`'s syntax works and docs 
 
 # docs for core-js
 ## styling with attributes

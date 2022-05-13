@@ -1,5 +1,5 @@
 
-# Simple-js project
+# Simple JS project
 
 Hello everyone I'm Rahmatullo from Uzbekistan I love javascript so I made javascript library with it. It was not big project but anyways let me show you ⚡️
 

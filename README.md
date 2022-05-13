@@ -12,6 +12,7 @@ here is the some documentation
 ```html
 <script src="https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js"></script>
 ```
+Put this on your html file and then you can use `strange-js` features
 
 Use `CDN` link to test version. Preferred version is via [npm package](https://www.npmjs.com/package/@strange-js/strange-js). You can simply install.
 

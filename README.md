@@ -224,7 +224,7 @@ for example
 	<div :sm:small :md:big .container></div>
 ```
 `:mediaKey:className`
-as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes were shown [above](https://github.com/byStrange/strange-js#media-sizes)  
+as you thought if screen size matches small `sm` size `small` class will be added or if screen size matches medium `md` big class will be added.  I think this will be useful when you want to use css power. Those media sizes were shown [above](https://github.com/byStrange/strange-js#media-sizes). BUT responsive class names haven't added yet to the product version. Now you can only use this feature in test version. It means you can't compile responsive classes you can only use in the browser based [core.js](https://cdn.jsdelivr.net/gh/byStrange/strange-js/js/core.js)
 
 It is my first library on `javascript` 😭.
 It is clear that there are lots of mistakes.

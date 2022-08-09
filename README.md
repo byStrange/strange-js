@@ -1,7 +1,7 @@
 # Installation
 
 ```bash
-npm i @strange-js/strange-js
+npm i @strange-js/strange-js -g
 ```
 
 ```bash
